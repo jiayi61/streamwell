@@ -1,7 +1,7 @@
 // The volunteer's journal: personal (n-of-1) insights, streaks, streams they
 // look after, missions, and the blue-prescription programme with WHO-5.
 
-import { h, svg, fmt, toast, BAND_COLOR, bandBadge } from './ui.js';
+import { h, svg, fmt, toast, put, BAND_COLOR, bandBadge } from './ui.js';
 import { icon } from './icons.js';
 import { SITE_BY_CODE, CITIES, sitesInCity } from './sites.js';
 import { personalInsights, enrich, overdueSites } from './insights.js';
@@ -32,7 +32,7 @@ export function renderJournal(root, ctx) {
   const pi = personalInsights(visits, ctx.today);
   const own = store.visits();
 
-  root.append(
+  put(root,
     h('div', { class: 'row spread' },
       h('div', {}, h('div', { class: 'eyebrow' }, 'Your journal'), h('h1', { style: { fontSize: '34px' } }, 'How the streams treat you')),
       h('label', { class: 'row small' }, h('input', { type: 'checkbox', checked: settings.includeDemo !== false, onchange: (e) => { store.setSetting('includeDemo', e.target.checked); location.reload(); } }), 'Include the demo journal')),

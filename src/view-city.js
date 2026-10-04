@@ -2,7 +2,7 @@
 // which fixes matter most, where lab and citizens disagree, and today's
 // safe-blue-walk advisories with what-if scenarios.
 
-import { h, svg, fmt, clear, download, toast, bandBadge, BAND_COLOR, LEVEL_COLOR } from './ui.js';
+import { h, svg, fmt, clear, put, download, toast, bandBadge, BAND_COLOR, LEVEL_COLOR } from './ui.js';
 import { icon } from './icons.js';
 import { SITES, SITE_BY_CODE, CITIES, sitesInCity } from './sites.js';
 import { HEALTH_RISK, riskBand } from './health-risks.js';
@@ -79,7 +79,7 @@ export function renderCity(root, ctx) {
       const l = HEALTH_RISK[code];
       const ad = adv[code];
       const alts = ad.level > 0 ? saferAlternatives(s, advList, SITES) : [];
-      clear(panel).append(
+      put(clear(panel),
         h('div', { class: 'eyebrow' }, `${s.code} · ${CITIES[s.city].name}`),
         h('h3', {}, s.name),
         h('div', { class: 'row', style: { margin: '6px 0 10px' } }, h('span', { class: `badge lvl-${ad.level}` }, ad.label)),

@@ -31,6 +31,9 @@ export function svg(markup) {
 
 export function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); return el; }
 
+/** Append children, skipping null/undefined/false (native append would print "null"). */
+export function put(el, ...children) { append(el, children); return el; }
+
 export function toast(text, ms = 2600) {
   const t = h('div', { class: 'toast', role: 'status' }, text);
   document.body.append(t);

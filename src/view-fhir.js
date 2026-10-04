@@ -84,11 +84,22 @@ async function hapiValidate(bundle, out) {
   try {
     const res = await fetch(`${HAPI}/Bundle/$validate`, { method: 'POST', headers: { 'Content-Type': 'application/fhir+json', Accept: 'application/fhir+json' }, body: JSON.stringify(bundle) });
     const oo = await res.json();
+    const text = (i) => i.diagnostics || (i.details && i.details.text) || '';
     const issues = oo.issue || [];
-    const by = (s) => issues.filter((i) => i.severity === s);
+    // HAPI does not have the OAH IG or StreamWell's code systems loaded, so it
+    // reports those as "not found". Count them separately from real errors.
+    const profileNotLoaded = issues.filter((i) => /could not be found, and the validator is set to not fetch unknown profiles/.test(text(i)));
+    const rest = issues.filter((i) => !profileNotLoaded.includes(i));
+    const errors = rest.filter((i) => i.severity === 'error' || i.severity === 'fatal');
+    const unknownCs = rest.filter((i) => i.severity === 'warning' && /CodeSystem is unknown/.test(text(i)));
+    const other = rest.filter((i) => i.severity === 'warning' && !unknownCs.includes(i));
     out.replaceChildren(
-      h('p', {}, h('strong', {}, `HAPI says: ${by('error').length + by('fatal').length} errors, ${by('warning').length} warnings, ${by('information').length} notes`), ` (HTTP ${res.status})`),
-      h('ul', { class: 'tiny' }, [...by('fatal'), ...by('error'), ...by('warning')].slice(0, 10).map((i) => h('li', {}, `${i.severity}: ${i.diagnostics || (i.details && i.details.text) || ''}`.slice(0, 260)))));
+      h('p', {}, h('span', { class: `badge ${errors.length ? 'poor' : 'good'}` }, `${errors.length} errors`), ` against base FHIR R4 on hapi.fhir.org (HTTP ${res.status}).`),
+      h('ul', { class: 'tiny' },
+        h('li', {}, `${profileNotLoaded.length} notes that the OneAquaHealth profiles are not loaded on HAPI (they are checked by StreamWell's own validator above)`),
+        h('li', {}, `${unknownCs.length} warnings that a code system is not on HAPI's terminology server (OAH TemporaryOahSystem and StreamWell codes)`),
+        h('li', {}, `${other.length} other warnings`),
+        ...[...errors, ...other].slice(0, 8).map((i) => h('li', {}, `${i.severity}: ${text(i)}`.slice(0, 240)))));
   } catch (e) {
     out.replaceChildren(h('p', { class: 'muted' }, `Could not reach hapi.fhir.org (${e.message}). The bundle still validates locally.`));
   }
@@ -164,15 +175,15 @@ function diagram() {
   return `<svg viewBox="0 0 980 250" class="chart" role="img" aria-label="Data flows from a StreamWell visit">
   <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>
   ${box(10, 93, 180, 'StreamWell visit', 'stream check + check-in/out', 'var(--brand)')}
-  ${box(300, 10, 240, 'Stream observations', 'LocationOah · ObservationIndicatorsOah', 'var(--good)')}
-  ${box(300, 176, 240, 'Personal well-being record', 'QuestionnaireResponse · Observation', 'var(--moderate)')}
+  ${box(300, 10, 256, 'Stream observations', 'LocationOah · ObservationIndicatorsOah', 'var(--good)')}
+  ${box(300, 176, 256, 'Personal well-being record', 'QuestionnaireResponse · Observation', 'var(--moderate)')}
   ${box(650, 10, 320, 'OneAquaHealth research', 'condition, lab overlay, early warning', 'var(--good)')}
   ${box(650, 93, 320, 'Health measures (k ≥ 5)', 'ObservationHealthMeasureOah · GroupOah', 'var(--info)')}
   ${box(650, 176, 320, 'GP: blue prescription', 'CarePlan · Goal · WHO-5 · Consent', 'var(--moderate)')}
   ${arrow(190, 112, 298, 46, 'shared, opt-out')}
   ${arrow(190, 140, 298, 204, 'stays on phone')}
-  ${arrow(540, 42, 648, 42, '')}
-  ${arrow(540, 196, 648, 132, 'donate, opt-in')}
-  ${arrow(540, 214, 648, 214, 'share, opt-in')}
+  ${arrow(556, 42, 648, 42, '')}
+  ${arrow(556, 196, 648, 132, 'donate, opt-in')}
+  ${arrow(556, 214, 648, 214, 'share, opt-in')}
 </svg>`;
 }

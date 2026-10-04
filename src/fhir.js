@@ -141,7 +141,7 @@ export function streamObservations(visit) {
     components: [
       comp('water-abstraction', 'Water abstraction', boolConcept(a.waterAbstraction)),
       comp('barriers', 'Barriers across the stream', boolConcept(a.hasDams)),
-      a.hasDams === true && a.numberOfDams ? comp('barrier-count', 'Number of barriers', { value: Number(a.numberOfDams), unit: 'barriers', system: 'http://unitsofmeasure.org', code: '{count}' }) : null,
+      a.hasDams === true && a.numberOfDams ? comp('barrier-count', 'Number of barriers', { value: Number(a.numberOfDams), unit: 'barriers', system: 'http://unitsofmeasure.org', code: '1' }) : null,
       a.waterHeight !== undefined && a.waterHeight !== '' && a.waterHeight !== null ? comp('water-height', 'Water height', { value: Number(a.waterHeight), unit: 'cm', system: 'http://unitsofmeasure.org', code: 'cm' }) : null,
     ],
     notes: notesFor(['waterFlow', 'waterAbstraction', 'hasDams'], dec),
@@ -210,8 +210,8 @@ export function streamObservations(visit) {
     const derived = indicatorObs({
       id: `${key}-condition-view`, visit,
       code: sw('condition-view', 'StreamWell condition view (decision support, not a validated index)'),
-      value: { value: cond.score, unit: 'points', system: 'http://unitsofmeasure.org', code: '{score}' },
-      components: cond.components.filter((c) => c.score !== null).map((c) => comp(slug(c.label), c.label, { value: c.score, unit: 'points of 25', system: 'http://unitsofmeasure.org', code: '{score}' })),
+      value: { value: cond.score, unit: 'points', system: 'http://unitsofmeasure.org', code: '1' },
+      components: cond.components.filter((c) => c.score !== null).map((c) => comp(slug(c.label), c.label, { value: c.score, unit: 'points of 25', system: 'http://unitsofmeasure.org', code: '1' })),
     });
     derived.performer = [{ display: 'StreamWell condition view v1 (rules in src/score.js)' }];
     derived.interpretation = [{ text: `${cond.band} (confidence ${cond.confidence.level})` }];
@@ -223,6 +223,34 @@ export function streamObservations(visit) {
 
 function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 
+const escHtml = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const conceptText = (cc) => (cc ? cc.text || (cc.coding && cc.coding[0] && (cc.coding[0].display || cc.coding[0].code)) || '' : '');
+function valueText(r) {
+  if (r.valueQuantity) return `${r.valueQuantity.value} ${r.valueQuantity.unit || ''}`.trim();
+  if (r.valueCodeableConcept) return conceptText(r.valueCodeableConcept);
+  if (r.valueString) return r.valueString;
+  if (r.dataAbsentReason) return `no value (${conceptText(r.dataAbsentReason)})`;
+  return (r.component || []).map((c) => `${conceptText(c.code)}: ${c.valueQuantity ? `${c.valueQuantity.value} ${c.valueQuantity.unit || ''}` : c.valueCodeableConcept ? conceptText(c.valueCodeableConcept) : c.valueString || ''}`).join('; ');
+}
+/** A short human-readable narrative (Resource.text), generated from the data. */
+export function narrative(r) {
+  let t;
+  switch (r.resourceType) {
+    case 'Location': t = `${r.name}${r.identifier ? ` (${r.identifier[0].value})` : ''}${r.description ? `: ${r.description}` : ''}`; break;
+    case 'Observation': t = `${conceptText(r.code)}: ${valueText(r)}${r.effectiveDateTime ? ` (${r.effectiveDateTime.slice(0, 10)})` : r.effectivePeriod ? ` (${r.effectivePeriod.start} to ${r.effectivePeriod.end})` : ''}`; break;
+    case 'Group': t = r.name || 'Cohort'; break;
+    case 'Patient': t = `Pseudonymous person ${r.identifier ? r.identifier[0].value : r.id}`; break;
+    case 'Practitioner': t = r.name ? r.name[0].text : 'Practitioner'; break;
+    case 'Questionnaire': t = r.title || r.name; break;
+    case 'QuestionnaireResponse': t = `Answers to ${r.questionnaire} (${r.status}, ${String(r.authored || '').slice(0, 10)})`; break;
+    case 'CarePlan': t = `${r.title}${r.period ? ` (${r.period.start} to ${r.period.end})` : ''}`; break;
+    case 'Goal': t = conceptText(r.description); break;
+    case 'Consent': t = `Consent: ${conceptText(r.scope)}, ${r.provision ? r.provision.type : ''} (${conceptText(r.policyRule)})`; break;
+    default: t = r.resourceType;
+  }
+  return { status: 'generated', div: `<div xmlns="http://www.w3.org/1999/xhtml"><p>${escHtml(t)}</p></div>` };
+}
+
 function entry(resource, transaction) {
   const e = { fullUrl: `urn:uuid:${uuid()}`, resource };
   if (transaction) e.request = { method: 'PUT', url: `${resource.resourceType}/${resource.id}` };
@@ -232,6 +260,7 @@ function entry(resource, transaction) {
 /** Bundle references use "Type/id"; give every entry a matching fullUrl. */
 function bundle(type, resources) {
   const tx = type === 'transaction';
+  resources.forEach((r) => { if (!r.text) r.text = narrative(r); });
   const entries = resources.map((r) => entry(r, tx));
   // In a transaction with PUT the server resolves Type/id references directly.
   if (!tx) entries.forEach((e) => { e.fullUrl = `${SW_BASE}/${e.resource.resourceType}/${e.resource.id}`; });
@@ -329,9 +358,10 @@ export function restorationObservation(visit, patientRef, qrId) {
     category: [{ coding: [{ system: OBS_CAT, code: 'survey', display: 'Survey' }] }],
     code: sw('restoration-change', 'Restoration change during a stream visit'),
     subject: { reference: patientRef },
+    performer: [{ reference: patientRef }],
     effectiveDateTime: visit.datetime || visit.date,
-    valueQuantity: { value: r, unit: 'score', system: 'http://unitsofmeasure.org', code: '{score}' },
-    referenceRange: [{ low: { value: -4, unit: 'score', system: 'http://unitsofmeasure.org', code: '{score}' }, high: { value: 4, unit: 'score', system: 'http://unitsofmeasure.org', code: '{score}' }, text: 'Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change' }],
+    valueQuantity: { value: r, unit: 'score', system: 'http://unitsofmeasure.org', code: '1' },
+    referenceRange: [{ low: { value: -4, unit: 'score', system: 'http://unitsofmeasure.org', code: '1' }, high: { value: 4, unit: 'score', system: 'http://unitsofmeasure.org', code: '1' }, text: 'Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change' }],
     derivedFrom: [{ reference: `QuestionnaireResponse/${qrId}` }],
   };
 }
@@ -399,8 +429,8 @@ export function healthMeasureBundle(measure, period, k = 5) {
     ...extra,
   });
   const sample = [
-    { code: sw('visits-count', 'Number of visits'), valueQuantity: { value: measure.visits, unit: 'visits', system: 'http://unitsofmeasure.org', code: '{count}' } },
-    { code: sw('people-count', 'Number of distinct visitors'), valueQuantity: { value: measure.people, unit: 'people', system: 'http://unitsofmeasure.org', code: '{count}' } },
+    { code: sw('visits-count', 'Number of visits'), valueQuantity: { value: measure.visits, unit: 'visits', system: 'http://unitsofmeasure.org', code: '1' } },
+    { code: sw('people-count', 'Number of distinct visitors'), valueQuantity: { value: measure.people, unit: 'people', system: 'http://unitsofmeasure.org', code: '1' } },
   ];
   const obs = [];
   if (measure.suppressed || measure.people < k) {
@@ -408,7 +438,7 @@ export function healthMeasureBundle(measure, period, k = 5) {
       dataAbsentReason: { coding: [{ system: DAR, code: 'masked', display: 'Masked' }], text: `Fewer than ${k} visitors: suppressed to protect privacy` },
     }));
   } else {
-    obs.push(base('restoration', sw('mean-restoration', 'Mean restoration change among visitors'), { valueQuantity: { value: measure.meanRestoration, unit: 'score', system: 'http://unitsofmeasure.org', code: '{score}' } }, { component: sample }));
+    obs.push(base('restoration', sw('mean-restoration', 'Mean restoration change among visitors'), { valueQuantity: { value: measure.meanRestoration, unit: 'score', system: 'http://unitsofmeasure.org', code: '1' } }, { component: sample }));
     obs.push(base('restored-share', sw('share-restored', 'Share of visits after which visitors felt better'), { valueQuantity: { value: Math.round(measure.shareRestored * 100), unit: '%', system: 'http://unitsofmeasure.org', code: '%' } }, { component: sample }));
     if (measure.activeShare != null) {
       obs.push(base('active-travel', sw('active-travel-share', 'Share of visits reached on foot or by bike (physical activity)'), { valueQuantity: { value: Math.round(measure.activeShare * 100), unit: '%', system: 'http://unitsofmeasure.org', code: '%' } }, { component: sample }));
@@ -455,6 +485,7 @@ export function bluePrescriptionBundle({ pseudonym = 'demo-2026', start, end, si
     category: [{ coding: [{ system: OBS_CAT, code: 'survey', display: 'Survey' }] }],
     code: sw('who5-score', 'WHO-5 percentage score'),
     subject: { reference: pRef },
+    performer: [{ reference: pRef }],
     effectiveDateTime: date,
     valueQuantity: { value: score, unit: '%', system: 'http://unitsofmeasure.org', code: '%' },
     derivedFrom: [{ reference: `QuestionnaireResponse/${qrId}` }],

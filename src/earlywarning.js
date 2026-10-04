@@ -116,9 +116,11 @@ export function advisory(site, w, lab, agg) {
   return { site: site.code, city: site.city, level, ...LEVELS[level], reasons };
 }
 
-/** For a site that is not "go", the nearest sites in the same city that are. */
+/** For a site that is not "go", the nearest sites in the same city with a lower (safer) level. */
 export function saferAlternatives(site, advisories, allSites, n = 3) {
-  const goCodes = new Set(advisories.filter((a) => a.level === 0 && a.city === site.city).map((a) => a.site));
+  const own = advisories.find((a) => a.site === site.code);
+  const level = own ? own.level : 1;
+  const goCodes = new Set(advisories.filter((a) => a.level < level && a.city === site.city).map((a) => a.site));
   return allSites
     .filter((s) => goCodes.has(s.code) && s.code !== site.code)
     .map((s) => ({ ...s, d: Math.hypot((s.lat - site.lat) * 111, (s.lon - site.lon) * 111 * Math.cos((site.lat * Math.PI) / 180)) }))
