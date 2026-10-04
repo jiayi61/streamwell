@@ -1,8 +1,12 @@
 # StreamWell: check the stream, check yourself
 
+![StreamWell: one urban-stream visit, two health checks](docs/img/cover.png)
+
 **StreamWell turns every visit to an urban stream into two health checks: the stream's, with the OneAquaHealth citizen protocol, and yours, with a 30-second check-in before and after.** Volunteers get a personal reason to come back. Cities and researchers get the paired data that links ecosystem health to human well-being, in HL7 FHIR on the OneAquaHealth Implementation Guide.
 
 Built for the **IEEE OneAquaHealth Global Hackathon 2026**.
+
+[![tests](https://github.com/jiayi61/streamwell/actions/workflows/test.yml/badge.svg)](https://github.com/jiayi61/streamwell/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-MIT-blue) ![FHIR R4](https://img.shields.io/badge/HL7%20FHIR-R4%20%C2%B7%20OneAquaHealth%20IG-0d6e86)
 
 - **Live app:** https://jiayi61.github.io/streamwell/
 - **Demo video:** _link added at submission_
@@ -127,7 +131,7 @@ Every visit produces records at **two privacy levels**:
 | Health measures | OAH research, public health | Aggregated, k ≥ 5 visitors | `ObservationHealthMeasureOah` with a `GroupOah` cohort (adults, LOINC 30525-0) per site and month; masked cells use `data-absent-reason#masked` |
 | Blue prescription | GP and patient | Shared by the patient | `CarePlan`, `Goal` (+10 WHO-5 points), WHO-5 `QuestionnaireResponse`s, visit outcomes, opt-in `Consent` |
 
-All example bundles pass StreamWell's structural validation against the OAH profiles (cardinalities, fixed values, allowed types, reference targets, references resolving inside the bundle), and the app can send any bundle to the public HAPI FHIR server for base-R4 validation. Building on the IG surfaced four small gaps, written up as FSH in [docs/ig-proposal.fsh](docs/ig-proposal.fsh): restorative-experience and physical-activity codes for `HealthIndicatorsOahVs`, a published CodeSystem for the app's answer codes, a "visited location" cohort characteristic, and a citizen-science category with a Questionnaire for the app form.
+All example bundles pass StreamWell's structural validation against the OAH profiles (cardinalities, fixed values, allowed types, reference targets, references resolving inside the bundle) and return **0 errors** from base FHIR R4 validation on the public HAPI server; the app can send any bundle there with one click. Details and how to reproduce: [docs/fhir-validation.md](docs/fhir-validation.md). Building on the IG surfaced four small gaps, written up as FSH in [docs/ig-proposal.fsh](docs/ig-proposal.fsh): restorative-experience and physical-activity codes for `HealthIndicatorsOahVs`, a published CodeSystem for the app's answer codes, a "visited location" cohort characteristic, and a citizen-science category with a Questionnaire for the app form.
 
 ## Privacy and responsible AI
 
