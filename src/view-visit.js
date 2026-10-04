@@ -113,7 +113,7 @@ export function renderVisit(root, ctx) {
       sel ? selectedCard(sel) : null,
       nav(null, () => go('checkin'), 'Start the visit', !!sel),
     );
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       const m = createMap(mapEl, {});
       if (!m) return;
       const shown = items;

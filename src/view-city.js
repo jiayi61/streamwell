@@ -95,7 +95,7 @@ export function renderCity(root, ctx) {
         l ? h('div', { class: 'small' }, icon('flask', 'inline'), ` OAH lab (${fmt.date(l.date)}): health risk ${l.score.toFixed(2)} · faecal ${l.fecal.toFixed(2)} · pathogen ${l.pathogen.toFixed(2)} · antibiotic resistance ${l.arg.toFixed(2)}`) : h('p', { class: 'small muted' }, 'No OAH lab sample at this site.'),
       );
     };
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       const m = createMap(mapEl, {});
       if (!m) return;
       m.setMarkers(sites.map((s) => ({ code: s.code, lat: s.lat, lon: s.lon, color: colorFor(s), radius: agg[s.code] ? 6 + Math.min(6, Math.sqrt(agg[s.code].n)) : 6, title: `${s.name} (${s.code})` })), (code) => { m.highlight(code); showSite(code); });
