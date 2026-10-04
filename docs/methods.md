@@ -70,7 +70,7 @@ Per site, three levels: Go, Care (walk, keep out of the water), Avoid (avoid wat
 - OAH lab faecal score ≥ 0.75: Care.
 - A recent discharge report (the latest visit within 21 days, or two of the last five visits): Care.
 
-Each advisory lists its reasons and sources. For Care and Avoid, the nearest Go sites in the same city are suggested. Storm (+28 mm tonight) and heatwave (36 °C) scenarios re-run the same rules for planning and demonstration.
+Each advisory lists its reasons and sources. For Care and Avoid, the nearest sites in the same city with a safer level are suggested (after a storm, Care sites are the safer choice for an Avoid site). Storm (+28 mm tonight) and heatwave (36 °C) scenarios re-run the same rules for planning and demonstration.
 
 ## 9. Synthetic pilot data
 
