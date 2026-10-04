@@ -25,7 +25,7 @@ const click = async (t) => { await p.getByRole('button', { name: t }).first().cl
 
 await p.goto(base, { waitUntil: 'domcontentloaded' }); await p.waitForTimeout(4000); await shot('home');
 await p.goto(`${base}#/city`); await p.waitForTimeout(1800); await p.evaluate(() => window.scrollTo(0, 560)); await p.waitForTimeout(400); await shot('city');
-await p.goto(`${base}#/fhir`); await p.waitForTimeout(1200); await p.evaluate(() => window.scrollTo(0, 640)); await p.waitForTimeout(300); await shot('fhir');
+await p.goto(`${base}#/fhir`); await p.waitForTimeout(1200); await p.evaluate(() => window.scrollTo(0, 300)); await p.waitForTimeout(300); await shot('fhir');
 await p.goto(`${base}#/me`); await p.waitForTimeout(1200); await p.evaluate(() => window.scrollTo(0, 700)); await p.waitForTimeout(300); await shot('journal');
 await p.goto(`${base}#/visit`); await p.waitForTimeout(800);
 await click('Example answers'); await click('Start the visit'); await click('Example answers'); await click('Start the stream check');
