@@ -9,7 +9,7 @@ Built for the **IEEE OneAquaHealth Global Hackathon 2026** · **Primary track: C
 [![tests](https://github.com/jiayi61/streamwell/actions/workflows/test.yml/badge.svg)](https://github.com/jiayi61/streamwell/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-MIT-blue) ![FHIR R4](https://img.shields.io/badge/HL7%20FHIR-R4%20%C2%B7%20OneAquaHealth%20IG-0d6e86)
 
 - **Live app:** https://jiayi61.github.io/streamwell/ (works on a phone, installs as an app, runs offline)
-- **Demo video (4 min, narrated):** [watch](https://jiayi61.github.io/streamwell/docs/streamwell-demo.mp4) · [file in this repo](docs/streamwell-demo.mp4) · [captions / transcript](docs/streamwell-demo.srt)
+- **Demo video (4½ min, narrated):** [watch](https://jiayi61.github.io/streamwell/docs/streamwell-demo.mp4) · [file in this repo](docs/streamwell-demo.mp4) · [captions / transcript](docs/streamwell-demo.srt)
 - **Run locally:** `python3 -m http.server 8000` and open http://localhost:8000 (no build step, no dependencies)
 
 **Evidence at a glance**

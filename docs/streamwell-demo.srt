@@ -1,187 +1,191 @@
 1
-00:00:01,194 --> 00:00:01,928
+00:00:01,120 --> 00:00:02,020
 StreamWell.
 
 2
-00:00:01,928 --> 00:00:03,063
+00:00:02,020 --> 00:00:03,412
 Check the stream.
 
 3
-00:00:03,063 --> 00:00:04,065
+00:00:03,412 --> 00:00:04,640
 Check yourself.
 
 4
-00:00:05,811 --> 00:00:09,982
+00:00:05,720 --> 00:00:10,833
 OneAquaHealth asks: do healthy urban streams make healthier people?
 
 5
-00:00:10,546 --> 00:00:16,053
-Citizen science can watch hundreds of streams, but only about a quarter of volunteers ever come back.
+00:00:10,833 --> 00:00:14,420
+Today, nobody can answer that, for two reasons.
 
 6
-00:00:16,623 --> 00:00:20,223
-And a stream record says nothing about how the stream made anyone feel.
+00:00:14,880 --> 00:00:21,100
+Volunteers drift away: in large citizen-science projects, only about a quarter ever come back.
 
 7
-00:00:20,223 --> 00:00:22,251
-The human half of One Health is missing.
+00:00:21,560 --> 00:00:28,080
+And the human half is missing: a stream record says nothing about how the stream made anyone feel.
 
 8
-00:00:24,026 --> 00:00:26,239
-StreamWell fixes both with one idea.
+00:00:29,840 --> 00:00:32,417
+StreamWell solves both with one loop.
 
 9
-00:00:26,239 --> 00:00:30,113
-Every visit becomes two health checks: the stream’s, and yours.
+00:00:32,417 --> 00:00:36,737
+Every visit becomes two health checks, the stream’s and yours.
 
 10
-00:00:32,534 --> 00:00:33,110
-Meet Ana.
+00:00:36,737 --> 00:00:44,260
+The personal answer brings volunteers back, and every return visit adds the paired data OneAquaHealth needs.
 
 11
-00:00:33,110 --> 00:00:39,122
-After work she walks to a stream in Coimbra, one of the 106 real OneAquaHealth research sites.
+00:00:46,800 --> 00:00:47,433
+Meet Ana.
 
 12
-00:00:41,681 --> 00:00:46,754
-She sees today’s safe-walk advisory, and the project’s own lab health-risk score for this stream.
+00:00:47,433 --> 00:00:49,752
+She walks to a stream in Coimbra.
 
 13
-00:00:48,432 --> 00:00:52,126
-First, thirty seconds: joy, calm, irritation and worry.
+00:00:49,752 --> 00:00:59,380
+Everything here is built on OneAquaHealth’s real data: all 106 research sites, the app’s own answer codes, and the project’s lab results.
 
 14
-00:00:52,126 --> 00:00:56,223
-The same four feelings the OneAquaHealth app already records.
+00:01:02,080 --> 00:01:07,120
+She sees today’s safe-walk advisory, from live weather and the lab’s health-risk score.
 
 15
-00:00:56,223 --> 00:00:58,036
-StreamWell asks them twice.
+00:01:08,640 --> 00:01:13,874
+Thirty seconds to check in, with the four feelings the OneAquaHealth app already asks.
 
 16
-00:01:02,944 --> 00:01:08,353
-Then the official OneAquaHealth stream check, in plain words and pictures, with an honest "not sure".
+00:01:13,874 --> 00:01:21,360
+We ask them again after the visit, so each person is compared with themselves, which removes most of the bias in mood data.
 
 17
-00:01:27,854 --> 00:01:28,906
-Then a second look.
+00:01:25,840 --> 00:01:35,300
+Then the official stream check, redesigned for non-experts: plain words, pictures, and an honest "not sure" that never counts against the stream.
 
 18
-00:01:28,906 --> 00:01:34,889
-Explainable checks compare her answers with each other, with recent weather and with her photo, and say why.
+00:01:48,240 --> 00:01:49,566
+Then a second look.
 
 19
-00:01:37,829 --> 00:01:38,880
-The AI suggests.
+00:01:49,566 --> 00:02:00,800
+No black box: every check shows what it noticed, why it matters, and which data it used: her other answers, recent weather, and her photo, analysed on the phone.
 
 20
-00:01:38,880 --> 00:01:42,426
-Ana decides, and her decision travels with the record.
+00:02:03,560 --> 00:02:04,767
+The AI suggests.
 
 21
-00:01:49,837 --> 00:01:51,692
-Two health checks, side by side.
+00:02:04,767 --> 00:02:08,690
+Ana decides, and her decision stays with the record.
 
 22
-00:01:51,692 --> 00:01:54,416
-The stream is Good, with every point explained.
+00:02:13,000 --> 00:02:15,305
+Two health checks, side by side.
 
 23
-00:01:54,416 --> 00:01:56,967
-And Ana left more restored than she arrived.
+00:02:15,305 --> 00:02:21,571
+The stream is Good, every point explained, and Ana left more restored than she arrived.
 
 24
-00:02:02,347 --> 00:02:03,601
-Her data, her choice.
+00:02:21,571 --> 00:02:24,020
+No other stream tool records that.
 
 25
-00:02:03,601 --> 00:02:06,349
-Feelings stay on her phone unless she opts in.
+00:02:25,640 --> 00:02:27,000
+Privacy is built in.
 
 26
-00:02:08,134 --> 00:02:09,915
-This is the reason to come back.
+00:02:27,000 --> 00:02:34,550
+Her feelings stay on her phone unless she opts in, and researchers only see averages over at least five people.
 
 27
-00:02:09,915 --> 00:02:13,311
-Over weeks, her journal shows which streams restore her most.
+00:02:35,920 --> 00:02:38,179
+This is the reason to come back.
 
 28
-00:02:14,980 --> 00:02:17,547
-The reward is personal insight, not points.
+00:02:38,179 --> 00:02:44,320
+Not points or badges, but an answer that matters to her: which streams restore me most?
 
 29
-00:02:19,304 --> 00:02:22,734
-Missions send volunteers to streams nobody has checked for a month.
+00:02:46,040 --> 00:02:50,540
+With thin data, it says "not clear yet", instead of overclaiming.
 
 30
-00:02:24,305 --> 00:02:28,457
-And a family doctor can prescribe stream walks, as a blue prescription.
+00:02:52,240 --> 00:02:58,690
+Missions send volunteers to streams nobody has checked for a month, so engagement fills the gaps in monitoring.
 
 31
-00:02:31,264 --> 00:02:35,012
-For cities: every site, with the real OneAquaHealth lab scores.
+00:03:00,280 --> 00:03:08,270
+And it reaches health care: a doctor can prescribe stream walks, and follow the outcome with the WHO-5 well-being index.
 
 32
-00:02:35,012 --> 00:02:39,474
-These visits are simulated, because this paired dataset does not exist yet.
+00:03:10,360 --> 00:03:16,065
+For cities, one map brings together citizen reports, real lab results and live weather.
 
 33
-00:02:39,474 --> 00:02:40,961
-Creating it is the point.
+00:03:16,065 --> 00:03:20,983
+These visits are simulated, because this paired dataset does not exist yet.
 
 34
-00:02:44,540 --> 00:02:47,963
-Healthier streams, more restored people, made measurable.
+00:03:20,983 --> 00:03:24,000
+Creating it is exactly what StreamWell is for.
 
 35
-00:02:48,530 --> 00:02:51,265
-Feeling unsafe, smells and litter cost the most.
+00:03:25,720 --> 00:03:32,220
+Healthier streams, more restored people: OneAquaHealth’s central hypothesis, made measurable.
 
 36
-00:02:51,265 --> 00:02:53,316
-Each becomes an action for the city.
+00:03:32,640 --> 00:03:34,610
+And it shows where to act.
 
 37
-00:02:57,868 --> 00:03:02,359
-If a storm hits tonight, risky streams turn red, with safer ones nearby.
+00:03:34,610 --> 00:03:42,340
+Feeling unsafe, bad smells and litter cost the most, and each one becomes a concrete fix for the city.
 
 38
-00:03:04,161 --> 00:03:10,161
-Everything is HL7 FHIR on the OneAquaHealth Implementation Guide, at two privacy levels.
+00:03:47,120 --> 00:03:52,280
+If a storm hits tonight, risky streams turn red, with safer ones nearby.
 
 39
-00:03:11,632 --> 00:03:13,150
-Zero validation errors.
+00:03:53,640 --> 00:04:02,520
+It all speaks the language of health systems: HL7 FHIR, on the OneAquaHealth Implementation Guide, at two privacy levels.
 
 40
-00:03:25,805 --> 00:03:27,233
-We checked our own work.
+00:04:04,000 --> 00:04:08,090
+Zero validation errors, ready for the project’s own infrastructure.
 
 41
-00:03:27,233 --> 00:03:34,134
-In two hundred simulated pilots, the model found every planted effect, and a fake one only four percent of the time.
+00:04:10,400 --> 00:04:12,344
+And we tested our own claims.
 
 42
-00:03:34,134 --> 00:03:35,681
-Zero accessibility issues.
+00:04:12,344 --> 00:04:19,784
+In two hundred simulated pilots, the model recovered every planted effect, with only four percent false alarms.
 
 43
-00:03:35,681 --> 00:03:39,310
-And a pre-registered pilot, ready for one OneAquaHealth city.
+00:04:19,784 --> 00:04:22,599
+Zero accessibility issues on every screen.
 
 44
-00:03:39,876 --> 00:03:40,641
-StreamWell.
+00:04:22,599 --> 00:04:27,760
+And a pre-registered pilot is ready for one summer in one OneAquaHealth city.
 
 45
-00:03:40,641 --> 00:03:41,822
-Check the stream.
+00:04:28,240 --> 00:04:34,521
+StreamWell works offline on any phone, needs no server, and costs almost nothing to run.
 
 46
-00:03:41,822 --> 00:03:42,865
-Check yourself.
+00:04:34,521 --> 00:04:35,735
+Check the stream.
 
 47
-00:03:42,865 --> 00:03:43,560
+00:04:35,735 --> 00:04:36,805
+Check yourself.
+
+48
+00:04:36,805 --> 00:04:37,519
 Thank you.

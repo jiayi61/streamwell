@@ -1,58 +1,39 @@
-# Demo video script (about 4 minutes)
+# Demo video narration
 
-The submitted video, [`docs/streamwell-demo.mp4`](streamwell-demo.mp4), is recorded and narrated automatically by `node scripts/record-demo.mjs` (Playwright for the screen, macOS `say` for the voice), so it can be regenerated after any change; the exact narration, with timings, is in [`docs/streamwell-demo.srt`](streamwell-demo.srt). The longer script below is for re-recording it in your own voice, which usually lands better with judges.
+The video, [`docs/streamwell-demo.mp4`](streamwell-demo.mp4), is recorded by `node scripts/record-demo.mjs`: Playwright drives the live app while each numbered line below is spoken, and every scene waits for its line to finish, so picture and voice always match. Captions are written to [`docs/streamwell-demo.srt`](streamwell-demo.srt).
 
-Record the live app in a desktop browser at 1280–1440 px wide, with a phone-sized window for the visit if you like (Chrome DevTools device mode, iPhone 14). Speak calmly; about 130 words per minute. The words below run about 3 min 50 s.
+**To use a human voice:** record each line as its own file named by its number (`01.m4a`, `02.m4a` … `25.m4a`; m4a, mp3 or wav), put them in one folder and run `VOICE_DIR=path/to/folder node scripts/record-demo.mjs`.
 
-Tip: before recording, open the app once so the map tiles and weather are cached, and press **Restart** on the visit page.
+Each line says what is on screen *and* why it matters. The right-hand column is the judging criterion the line is aimed at.
 
----
+| # | Screen | Line | Aimed at |
+|---|---|---|---|
+| 1 | Title card | StreamWell. Check the stream. Check yourself. | |
+| 2 | Home | OneAquaHealth asks: do healthy urban streams make healthier people? Today, nobody can answer that, for two reasons. | Mission alignment |
+| 3 | Home | Volunteers drift away: in large citizen-science projects, only about a quarter ever come back. | Impact |
+| 4 | Home | And the human half is missing: a stream record says nothing about how the stream made anyone feel. | Impact |
+| 5 | Home, the four steps | StreamWell solves both with one loop. Every visit becomes two health checks, the stream's and yours. The personal answer brings volunteers back, and every return visit adds the paired data OneAquaHealth needs. | Innovation |
+| 6 | Visit: choose a stream | Meet Ana. She walks to a stream in Coimbra. Everything here is built on OneAquaHealth's real data: all 106 research sites, the app's own answer codes, and the project's lab results. | Tool / API use |
+| 7 | Visit: advisory | She sees today's safe-walk advisory, from live weather and the lab's health-risk score. | Tool / API use |
+| 8 | Check-in | Thirty seconds to check in, with the four feelings the OneAquaHealth app already asks. We ask them again after the visit, so each person is compared with themselves, which removes most of the bias in mood data. | Innovation, scientific quality |
+| 9 | Stream check | Then the official stream check, redesigned for non-experts: plain words, pictures, and an honest "not sure" that never counts against the stream. | UX & accessibility |
+| 10 | Second look | Then a second look. No black box: every check shows what it noticed, why it matters, and which data it used: her other answers, recent weather, and her photo, analysed on the phone. | Responsible AI |
+| 11 | Second look: keep answer | The AI suggests. Ana decides, and her decision stays with the record. | Responsible AI |
+| 12 | Result | Two health checks, side by side. The stream is Good, every point explained, and Ana left more restored than she arrived. No other stream tool records that. | Innovation |
+| 13 | Result: sharing | Privacy is built in. Her feelings stay on her phone unless she opts in, and researchers only see averages over at least five people. | Architecture, trust |
+| 14 | Journal | This is the reason to come back. Not points or badges, but an answer that matters to her: which streams restore me most? | Community track |
+| 15 | Journal: intervals | With thin data, it says "not clear yet", instead of overclaiming. | Scientific honesty |
+| 16 | Journal: missions | Missions send volunteers to streams nobody has checked for a month, so engagement fills the gaps in monitoring. | Impact |
+| 17 | Journal: blue prescription | And it reaches health care: a doctor can prescribe stream walks, and follow the outcome with the WHO-5 well-being index. | One Health, scalability |
+| 18 | City dashboard | For cities, one map brings together citizen reports, real lab results and live weather. These visits are simulated, because this paired dataset does not exist yet. Creating it is exactly what StreamWell is for. | Data-to-insight, honesty |
+| 19 | City: correlation | Healthier streams, more restored people: OneAquaHealth's central hypothesis, made measurable. | Mission alignment |
+| 20 | City: drivers | And it shows where to act. Feeling unsafe, bad smells and litter cost the most, and each one becomes a concrete fix for the city. | Actionable insight |
+| 21 | City: storm scenario | If a storm hits tonight, risky streams turn red, with safer ones nearby. | Resilience |
+| 22 | Health data (FHIR) | It all speaks the language of health systems: HL7 FHIR, on the OneAquaHealth Implementation Guide, at two privacy levels. | Architecture, standards |
+| 23 | FHIR validation | Zero validation errors, ready for the project's own infrastructure. | Architecture |
+| 24 | Home: evidence | And we tested our own claims. In two hundred simulated pilots, the model recovered every planted effect, with only four percent false alarms. Zero accessibility issues on every screen. And a pre-registered pilot is ready for one summer in one OneAquaHealth city. | Rigour, feasibility |
+| 25 | Closing card | StreamWell works offline on any phone, needs no server, and costs almost nothing to run. Check the stream. Check yourself. Thank you. | Scalability |
 
-### 0:00–0:25 · Hook (home page)
-**Screen:** Home page, slowly scroll to "One visit, two health checks".
+About 540 words: at a calm 150 words per minute the finished video stays under five minutes.
 
-> OneAquaHealth asks whether healthy urban streams make healthier people. Citizen science can watch hundreds of streams, but volunteers rarely come back: in large projects only about a quarter return for a second session. And a stream record says nothing about how the stream made anyone feel. StreamWell fixes both with one idea: every visit is two health checks, the stream's and yours.
-
-### 0:25–1:45 · A visit (Visit page)
-**Screen:** Visit → choose Coimbra → Vale das Flores (C3). Point at the "Go" advisory and the OAH lab score.
-
-> I'm at Vale das Flores, one of the 106 real OneAquaHealth research sites. Today's advisory says it's good for a walk, and here is the project's own lab health-risk score for this stream.
-
-**Screen:** Check-in. Tap four answers.
-
-> First, thirty seconds before I look closely: joy, calm, irritation, worry. These are the same four feelings the OneAquaHealth app already records. StreamWell simply asks them twice.
-
-**Screen:** Stream check. Show one page with pictograms; point at the scientific term and "Not sure". Use "Example answers" to move quickly through the rest.
-
-> Then the stream check: the official OAH protocol and answer codes, but in plain words, with pictures, the scientific term underneath, and an honest "not sure" that never counts against the stream.
-
-**Screen:** Second look. Show the flag about the left bank; click "Keep my answer" and type a short note.
-
-> Before saving, a second look. It compares my answers with each other, with the last three days of weather and with my photo, which is analysed on the phone. It tells me what it noticed and why, and which data it used. I decide. Here I keep my answer and add a note, and that decision travels with the record.
-
-### 1:45–2:15 · Result
-**Screen:** Check-out with tags, then the result. Pause on the two tiles and the story card.
-
-> After the visit, the same four feelings again, and what shaped them. Now I see both health checks side by side: the stream is Good, with every point explained, and I left more restored, plus One Health notes for the ecosystem, animals and people. I choose what to share: the stream observation goes to OneAquaHealth; my feelings stay on my phone unless I opt in.
-
-### 2:15–2:40 · Journal
-**Screen:** Journal: KPIs, the restoration chart, "What restores you", missions, blue prescription.
-
-> Over weeks, the journal shows which streams restore me most, with honest intervals that say "not clear yet" when the data is thin. Missions send me to streams nobody has checked for a month. That personal insight is the reason to come back.
-
-### 2:40–3:25 · City dashboard
-**Screen:** City → Coimbra. Hover the map; click a site. Then switch Weather to "Storm: 28 mm tonight".
-
-> For cities and researchers, every site on one map, with the citizens' view and the OAH lab scores. Healthier streams go with more restored people: the OneAquaHealth hypothesis, made measurable visit by visit. This model shows what would help people most: feeling unsafe, bad smells and litter cost the most; the sound of water and tree-lined banks add the most. Each bar becomes an action. And early warning: if a storm hits tonight, streams with a faecal-contamination signal turn red, with safer streams nearby.
-
-*(Say once, clearly:)* > The visits here are synthetic, from a documented simulation on the real sites and lab data, because this paired dataset does not exist yet. Creating it is the point.
-
-### 3:25–3:55 · FHIR
-**Screen:** FHIR page: diagram, then the Stream observation tab with "164 checks passed"; click "Validate on public HAPI"; open the Blue prescription tab.
-
-> Everything is HL7 FHIR on the OneAquaHealth Implementation Guide, at two privacy levels: stream observations with no personal data, and a personal record only the volunteer controls. Donated feelings become k-anonymous health measures. And a GP can prescribe stream walks as a CarePlan and follow well-being with WHO-5.
-
-### 3:55–4:10 · Close
-**Screen:** Back to the home hero.
-
-> StreamWell: check the stream, check yourself. It is open source, runs offline, and is ready for a summer pilot in a OneAquaHealth city. Thank you.
+**Tips for recording.** A quiet room, the phone about 20 cm away, one take per line (re-record a single line if you stumble). Stress the contrast words: *nobody*, *both*, *no black box*, *Ana decides*, *no other stream tool*, *not points or badges*, *tested our own claims*.

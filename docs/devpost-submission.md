@@ -140,7 +140,7 @@ javascript, html5, css3, leaflet, openstreetmap, open-meteo, hl7-fhir, fhir-r4, 
 
 - [x] Repository is public
 - [x] GitHub Pages is deployed
-- [x] Narrated demo video (3 min 56 s) in the repo and on GitHub Pages
+- [x] Narrated demo video (4 min 38 s) in the repo and on GitHub Pages
 - [ ] Same video uploaded to YouTube or Vimeo (Public or Unlisted), `docs/streamwell-demo.srt` added as English captions, and the link pasted into Devpost
 - [ ] Primary track selected on Devpost
 - [ ] Team/participant setup confirmed on Devpost
