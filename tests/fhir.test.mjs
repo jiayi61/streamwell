@@ -42,7 +42,8 @@ test('personal bundle carries no stream-free identifiers and validates', () => {
   const b = personalBundle(visit);
   assert.ok(validateBundle(b).ok);
   const p = byType(b, 'Patient')[0];
-  assert.deepEqual(Object.keys(p).sort(), ['active', 'id', 'identifier', 'resourceType'], 'pseudonymous patient only');
+  assert.deepEqual(Object.keys(p).sort(), ['active', 'id', 'identifier', 'resourceType', 'text'], 'pseudonymous patient only: no name, birth date, address or contact');
+  assert.ok(/Pseudonymous person/.test(p.text.div));
   const qr = byType(b, 'QuestionnaireResponse')[0];
   assert.equal(qr.questionnaire, SW.questionnaireVisit);
   const obs = byType(b, 'Observation')[0];

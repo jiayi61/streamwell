@@ -111,6 +111,8 @@ test('safe-blue-walk advisories', () => {
   const advs = ['C1', 'C2', 'C3'].map((c) => ({ site: c, city: 'CO', level: c === 'C1' ? 1 : 0 }));
   const alt = saferAlternatives(SITE_BY_CODE.C1, advs, SITES);
   assert.deepEqual(alt.map((s) => s.code).sort(), ['C2', 'C3']);
+  const stormAdvs = ['C1', 'C2', 'C3'].map((c) => ({ site: c, city: 'CO', level: c === 'C1' ? 2 : 1 }));
+  assert.deepEqual(saferAlternatives(SITE_BY_CODE.C1, stormAdvs, SITES).map((s) => s.code).sort(), ['C2', 'C3'], 'after a storm, "care" sites are safer than "avoid" ones');
 });
 
 test('photo check classifies colours and explains itself', () => {
