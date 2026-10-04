@@ -4,13 +4,23 @@
 
 **StreamWell turns every visit to an urban stream into two health checks: the stream's, with the OneAquaHealth citizen protocol, and yours, with a 30-second check-in before and after.** Volunteers get a personal reason to come back. Cities and researchers get the paired data that links ecosystem health to human well-being, in HL7 FHIR on the OneAquaHealth Implementation Guide.
 
-Built for the **IEEE OneAquaHealth Global Hackathon 2026**.
+Built for the **IEEE OneAquaHealth Global Hackathon 2026** · **Primary track: Community & Gamification**, with Data-to-Insight and Digital Health Standards as the two pillars it stands on.
 
 [![tests](https://github.com/jiayi61/streamwell/actions/workflows/test.yml/badge.svg)](https://github.com/jiayi61/streamwell/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-MIT-blue) ![FHIR R4](https://img.shields.io/badge/HL7%20FHIR-R4%20%C2%B7%20OneAquaHealth%20IG-0d6e86)
 
-- **Live app:** https://jiayi61.github.io/streamwell/
-- **Demo video:** _link added at submission_
+- **Live app:** https://jiayi61.github.io/streamwell/ (works on a phone, installs as an app, runs offline)
+- **Demo video (4 min, narrated):** [watch](https://jiayi61.github.io/streamwell/docs/streamwell-demo.mp4) · [file in this repo](docs/streamwell-demo.mp4)
 - **Run locally:** `python3 -m http.server 8000` and open http://localhost:8000 (no build step, no dependencies)
+
+**Evidence at a glance**
+
+| | |
+|---|---|
+| **Method check** | In 200 simulated pilots with known, planted effects, the model's 95% intervals contained the truth 89–98% of the time and a no-effect placebo was flagged in 4% of pilots ([docs/recovery.md](docs/recovery.md)) |
+| **Standards** | Every example bundle: 0 errors on public HL7 FHIR R4 validation, built on the OneAquaHealth IG profiles ([docs/fhir-validation.md](docs/fhir-validation.md)) |
+| **Accessibility** | 0 WCAG 2.1 A/AA violations (axe-core) on all 20 screens, phone and desktop ([docs/accessibility.md](docs/accessibility.md)) |
+| **Real-world next step** | A pre-registered one-summer pilot: 40 volunteers × 6 visits, 84% power ([docs/preregistration.md](docs/preregistration.md)) |
+| **Quality** | 27 unit tests in CI, a headless walk-through of every view, reproducible simulation and analysis |
 
 | | |
 |---|---|
@@ -55,7 +65,9 @@ Asking the same questions twice turns a feeling into a **change score for the vi
 
 ## Hackathon tracks
 
-StreamWell is one product, but it answers a problem in every track:
+**Primary: Community & Gamification.** The track names low repeat engagement as the problem. StreamWell's answer is not points: it is a personal insight a volunteer cannot get anywhere else (*which streams restore me?*), which only gets sharper the more often they come back. Streaks, adopted streams and data-gap missions sit on top of that. The loop is the whole idea: **a better reason to return creates the paired data OneAquaHealth needs to measure the link between stream health and human health.**
+
+Because that loop has to produce trustworthy, portable data, it leans on two other tracks (Data-to-Insight and Digital Health Standards) and touches the rest:
 
 | Track | StreamWell |
 |---|---|
@@ -147,16 +159,43 @@ All example bundles pass StreamWell's structural validation against the OAH prof
 - **Cheap to run.** A static site: no servers, no API keys, works offline after the first visit. Weather from Open-Meteo is free.
 - **A pilot that answers the question.** By simulation ([`scripts/analysis.py`](scripts/analysis.py)), about 240 paired visits (40 volunteers × 6 visits) detect a 0.25-point effect of a stream feature present on 20% of visits with 84% power; 360 visits give 96%. That is one summer in one OAH city.
 - **Scales across cities and languages.** Sites, cities and questions are data. Translations of the short texts are the main per-city cost.
-- **Next steps:** pilot with an OAH city partner; GDPR data-protection impact assessment; translations (PT, FR, IT, NL, NO); propose the IG additions to HL7 Europe; replace the simulated effect sizes with real estimates.
+- **Next steps:** run the [pre-registered pilot](docs/preregistration.md) with an OAH city partner; GDPR data-protection impact assessment; translations (PT, FR, IT, NL, NO); propose the IG additions to HL7 Europe; replace the simulated effect sizes with real estimates.
+
+## How we checked our own work
+
+A tool that asks people and cities to act on its insights has to show its evidence. Everything here is reproducible from the repository.
+
+**1. Does the analysis find effects that are really there, and only those?** The pilot visits are simulated, so the true effects are known. [`scripts/recovery.py`](scripts/recovery.py) re-runs the whole simulation with 200 different seeds and fits the dashboard's within-person model to each synthetic pilot, plus a placebo feature with no effect:
+
+| Feature | Truth (measured scale) | Mean estimate | 95% CI coverage | Detected |
+|---|---:|---:|---:|---:|
+| sound of water | +0.184 | +0.204 | 89% | 100% |
+| birds or wildlife | +0.110 | +0.120 | 95% | 100% |
+| litter | −0.353 | −0.367 | 97% | 100% |
+| bad smell | −0.393 | −0.408 | 96% | 100% |
+| traffic noise | −0.171 | −0.172 | 96% | 100% |
+| felt unsafe | −0.515 | −0.519 | 98% | 100% |
+| **placebo (no effect)** | 0 | −0.002 | 96% | **4%** (false positives) |
+
+The intervals are honest and the dashboard does not invent drivers. This shows the method works *if the world works like the simulation*; it does not show the effect sizes are real. That is what the pilot is for. Details and caveats: [docs/recovery.md](docs/recovery.md).
+
+**2. Is it usable by everyone?** An automated WCAG 2.0/2.1 A and AA audit (axe-core, [`scripts/a11y.mjs`](scripts/a11y.mjs)) of every view and every step of a visit, at phone and desktop size. The first run found 32 issues (low-contrast badges, unnamed progress bar, a conflicting ARIA attribute, tables not reachable by keyboard); all are fixed and the audit now reports **0 violations on 20 screens** ([docs/accessibility.md](docs/accessibility.md)).
+
+**3. Does the data travel?** All example bundles pass StreamWell's structural checks against the OAH profiles and return 0 errors on public HL7 FHIR R4 validation; a unit test feeds the validator deliberately broken bundles and checks they are rejected ([docs/fhir-validation.md](docs/fhir-validation.md)).
+
+**4. How will we know it works for real people?** A pre-registered pilot plan, written before any real data exist: questions, outcome, exclusions, sample size, analysis, and what result would make us withdraw a claim ([docs/preregistration.md](docs/preregistration.md)).
 
 ## Run, test, rebuild
 
 ```bash
 python3 -m http.server 8000      # serve the app at http://localhost:8000
-node --test tests/*.test.mjs     # 26 unit tests: protocol, scoring, checks, statistics, early warning, FHIR
+node --test tests/*.test.mjs     # 27 unit tests: protocol, scoring, checks, statistics, early warning, FHIR
 node scripts/smoke.mjs           # headless browser walk-through of every view (needs Playwright)
 python3 scripts/simulate.py      # regenerate the synthetic pilot data (numpy)
 python3 scripts/analysis.py      # fixed-effects model, site-level correlation, pilot power
+python3 scripts/recovery.py      # method check: planted-effect recovery over 200 simulated pilots
+node scripts/a11y.mjs            # WCAG 2.1 AA audit of every screen (needs Playwright + @axe-core/playwright)
+node scripts/record-demo.mjs     # re-record the narrated demo video (Playwright, ffmpeg, macOS say)
 node scripts/build-fhir.mjs      # regenerate fhir/ (CodeSystems, Questionnaires, example bundles)
 ```
 

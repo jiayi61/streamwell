@@ -16,7 +16,7 @@ export function renderHome(root, ctx) {
         h('div', { class: 'cta' },
           h('a', { class: 'btn primary', href: '#/visit' }, icon('pin'), 'Start a stream visit'),
           h('a', { class: 'btn', href: '#/city' }, 'Open the city dashboard'),
-          h('a', { class: 'btn ghost', href: '#/fhir' }, 'FHIR & blue prescriptions')),
+          h('a', { class: 'btn ghost', href: '#/fhir' }, 'For GPs: blue prescriptions')),
       ),
       h('div', { class: 'hero-art' }, heroArt()),
     ),
@@ -40,7 +40,7 @@ export function renderHome(root, ctx) {
     h('section', { class: 'section grid grid-3' },
       audience('person', 'For volunteers', 'A journal that shows which streams restore you most, streaks for regular walks, and missions to streams that need a look.', '#/me', 'Open the journal'),
       audience('users', 'For cities & researchers', 'Site conditions, safe-blue-walk advisories from weather and OAH lab data, and which fixes (litter, trees, outfalls) are linked to the biggest well-being gains.', '#/city', 'Open the dashboard'),
-      audience('stethoscope', 'For health systems', 'Observations in HL7 FHIR on the OneAquaHealth IG, k-anonymous health measures, and a blue-prescription CarePlan a GP can issue and follow.', '#/fhir', 'See the FHIR'),
+      audience('stethoscope', 'For health systems', 'Observations in HL7 FHIR on the OneAquaHealth IG, k-anonymous health measures, and a blue-prescription CarePlan a GP can issue and follow.', '#/fhir', 'See the health records'),
     ),
 
     h('section', { class: 'section card flat' },
@@ -62,13 +62,23 @@ export function renderHome(root, ctx) {
     ),
 
     h('section', { class: 'section' },
-      h('div', { class: 'pill-row' },
-        ['Citizen Science UX', 'Data-to-Insight', 'AI-Supported Assessment', 'Awareness & Storytelling', 'Community', 'Resilience Informatics', 'Digital Health Standards'].map((t) => h('span', { class: 'chip' }, t)),
+      h('h2', {}, 'How we checked our own work'),
+      h('p', { class: 'muted' }, 'A tool that asks people to trust its insights has to show its evidence. Every number below can be reproduced from the repository.'),
+      h('div', { class: 'grid grid-4', style: { marginTop: '12px' } },
+        evidence('89–98%', 'of 95% intervals contained the true effect in 200 simulated pilots, and a no-effect placebo was flagged only 4% of the time', 'docs/recovery.md', 'Method check'),
+        evidence('0 errors', 'on public HL7 FHIR R4 validation for every example bundle, built on the OneAquaHealth Implementation Guide profiles', 'docs/fhir-validation.md', 'FHIR validation'),
+        evidence('0 issues', 'in an automated WCAG 2.1 AA audit (axe-core) of all 20 screens, on a phone and a desktop', 'docs/accessibility.md', 'Accessibility audit'),
+        evidence('240 visits', '40 volunteers × 6 visits: a pre-registered one-summer pilot with 84% power, ready for an OAH city partner', 'docs/preregistration.md', 'Pilot plan'),
       ),
     ),
   );
 }
 
+function evidence(v, l, doc, cta) {
+  return h('div', { class: 'card kpi stack' },
+    h('div', { class: 'v' }, v), h('div', { class: 'l' }, l),
+    h('a', { class: 'small', href: `https://github.com/jiayi61/streamwell/blob/main/${doc}` }, `${cta} →`));
+}
 function problem(title, text) {
   return h('div', { class: 'card' }, h('h3', {}, title), h('p', { class: 'muted small' }, text));
 }

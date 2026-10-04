@@ -81,7 +81,7 @@ export function renderJournal(root, ctx) {
   root.append(h('section', { class: 'section grid grid-2' },
     h('div', { class: 'card' },
       h('h3', {}, 'Your streams'),
-      h('div', { class: 'table-wrap' }, h('table', { class: 'table' },
+      h('div', { class: 'table-wrap', tabindex: 0, role: 'region', 'aria-label': 'Scrollable table' }, h('table', { class: 'table' },
         h('thead', {}, h('tr', {}, h('th', {}, 'Stream'), h('th', {}, 'Visits'), h('th', {}, 'Avg restoration'), h('th', {}, 'Today'))),
         h('tbody', {}, pi.sites.map((s) => {
           const a = advisory(s.site);
@@ -101,7 +101,7 @@ export function renderJournal(root, ctx) {
   // Visit list
   root.append(h('section', { class: 'section card' },
     h('h3', {}, 'All visits'),
-    h('div', { class: 'table-wrap' }, h('table', { class: 'table' },
+    h('div', { class: 'table-wrap', tabindex: 0, role: 'region', 'aria-label': 'Scrollable table' }, h('table', { class: 'table' },
       h('thead', {}, h('tr', {}, h('th', {}, 'Date'), h('th', {}, 'Stream'), h('th', {}, 'Condition'), h('th', {}, 'Restoration'), h('th', {}, ''))),
       h('tbody', {}, [...pi.visits].reverse().map((v) => h('tr', {},
         h('td', {}, fmt.date(v.date)), h('td', {}, SITE_BY_CODE[v.site].name, v.synthetic ? h('span', { class: 'tiny muted' }, ' · demo') : null),

@@ -1,5 +1,7 @@
 # Demo video script (about 4 minutes)
 
+The submitted video, [`docs/streamwell-demo.mp4`](streamwell-demo.mp4), is recorded and narrated automatically by `node scripts/record-demo.mjs` (Playwright for the screen, macOS `say` for the voice), so it can be regenerated after any change. The script below is for re-recording it in your own voice, which usually lands better with judges.
+
 Record the live app in a desktop browser at 1280–1440 px wide, with a phone-sized window for the visit if you like (Chrome DevTools device mode, iPhone 14). Speak calmly; about 130 words per minute. The words below run about 3 min 50 s.
 
 Tip: before recording, open the app once so the map tiles and weather are cached, and press **Restart** on the visit page.

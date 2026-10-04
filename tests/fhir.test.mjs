@@ -98,3 +98,21 @@ test('transaction conversion', () => {
   assert.ok(tx.entry.every((e) => e.request.method === 'PUT' && e.request.url === `${e.resource.resourceType}/${e.resource.id}`));
   assert.ok(validateBundle(tx).ok);
 });
+
+test('validator rejects each kind of deliberately broken record', () => {
+  const cell = monthlyHealthMeasures(ds.visits).find((c) => !c.suppressed);
+  const hm = () => healthMeasureBundle(cell, { id: cell.month, label: cell.month, start: `${cell.month}-01`, end: `${cell.month}-28` });
+  const first = (b, t) => byType(b, t)[0];
+  const cases = {
+    'citizen observation not final': () => { const b = streamBundle(visit); first(b, 'Observation').status = 'preliminary'; return b; },
+    'observation without a stream': () => { const b = streamBundle(visit); delete first(b, 'Observation').subject; return b; },
+    'site without a latitude': () => { const b = streamBundle(visit); delete first(b, 'Location').position.latitude; return b; },
+    'value and data-absent-reason together': () => { const b = streamBundle(visit); const o = first(b, 'Observation'); o.dataAbsentReason = { text: 'x' }; o.valueQuantity = o.valueQuantity || { value: 1 }; return b; },
+    'cohort lists individual members': () => { const b = hm(); first(b, 'Group').member = [{ entity: { reference: 'Patient/x' } }]; return b; },
+    'invalid resource id': () => { const b = streamBundle(visit); first(b, 'Location').id = 'not a valid id!'; return b; },
+  };
+  assert.ok(validateBundle(hm()).ok && validateBundle(streamBundle(visit)).ok);
+  for (const [name, make] of Object.entries(cases)) {
+    assert.equal(validateBundle(make()).ok, false, `not rejected: ${name}`);
+  }
+});

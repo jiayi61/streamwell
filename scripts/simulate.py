@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 from datetime import date, timedelta
 from pathlib import Path
@@ -41,7 +42,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-SEED = 20261004
+SEED = int(os.environ.get("STREAMWELL_SEED", 20261004))  # override only for scripts/recovery.py
 rng = np.random.default_rng(SEED)
 
 START = date(2026, 4, 6)

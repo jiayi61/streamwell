@@ -60,7 +60,7 @@ export function renderVisit(root, ctx) {
         h('div', { class: 'row' },
           d.stage !== 'result' ? h('button', { class: 'btn small ghost', onclick: () => fillExample(), title: 'Fill this step with example answers (for demos)' }, 'Example answers') : null,
           h('button', { class: 'btn small ghost', onclick: () => { if (confirmRestart()) { d = newDraft(); store.clearDraft(); render(); } } }, 'Restart'))),
-      h('div', { class: 'progress', role: 'progressbar', 'aria-valuenow': Math.round(pct), 'aria-valuemin': 0, 'aria-valuemax': 100 }, h('span', { style: { width: `${pct}%` } })),
+      h('div', { class: 'progress', role: 'progressbar', 'aria-label': 'Visit progress', 'aria-valuenow': Math.round(pct), 'aria-valuemin': 0, 'aria-valuemax': 100 }, h('span', { style: { width: `${pct}%` } })),
     );
   }
 
@@ -150,7 +150,7 @@ export function renderVisit(root, ctx) {
         EMOTIONS.map((e) => h('div', { class: 'item' },
           h('div', { class: 'row spread' }, h('strong', {}, e.prompt), m[e.id] ? h('span', { class: 'muted small' }, SCALE[m[e.id] - 1].label) : null),
           h('div', { class: 'scale', role: 'radiogroup', 'aria-label': e.prompt },
-            SCALE.map((sc) => h('button', { role: 'radio', 'aria-checked': String(m[e.id] === sc.value), 'aria-pressed': String(m[e.id] === sc.value), onclick: () => set({ [key]: { ...m, [e.id]: sc.value } }) }, String(sc.value), h('small', {}, sc.label))))))),
+            SCALE.map((sc) => h('button', { role: 'radio', 'aria-checked': String(m[e.id] === sc.value), onclick: () => set({ [key]: { ...m, [e.id]: sc.value } }) }, String(sc.value), h('small', {}, sc.label))))))),
     );
   }
   const feelingsDone = (m) => EMOTIONS.every((e) => typeof (m || {})[e.id] === 'number');

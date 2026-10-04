@@ -77,7 +77,7 @@ function route() {
     console.error(e);
     main.append(h('div', { class: 'card empty' }, h('p', {}, 'Something went wrong on this page.'), h('pre', { class: 'mono small' }, String(e && e.message))));
   }
-  document.title = { '': 'StreamWell: check the stream, check yourself', visit: 'Stream visit · StreamWell', me: 'Your journal · StreamWell', city: 'City dashboard · StreamWell', fhir: 'FHIR · StreamWell' }[name];
+  document.title = { '': 'StreamWell: check the stream, check yourself', visit: 'Stream visit · StreamWell', me: 'Your journal · StreamWell', city: 'City dashboard · StreamWell', fhir: 'Health data (HL7 FHIR) · StreamWell' }[name];
   if (name !== 'visit') window.scrollTo(0, 0);
 }
 

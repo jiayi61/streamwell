@@ -79,3 +79,7 @@ Each advisory lists its reasons and sources. For Care and Avoid, the nearest sit
 ## 10. Power for a pilot
 
 `scripts/analysis.py` simulates pilots with six visits per volunteer, a person random effect (SD 0.3), residual SD 0.45 and a feature present on 20% of visits. A within-person model detects a 0.25-point effect (|t| > 1.96) in 54% of pilots with 120 visits, 84% with 240 and 96% with 360.
+
+## 11. Method check (planted-effect recovery)
+
+`scripts/recovery.py` re-runs the simulation with 200 seeds and fits the within-person model to each pilot, with a random placebo feature (20% of visits, no effect). Truth is the planted effect after the four feelings are rounded and clipped to 1–5, computed numerically from the simulation's own measurement step. Coverage of the 95% intervals is 89–98% across the six experience features; the placebo is flagged in 4% of pilots. Sound of water is slightly over-estimated (coverage 89%) because it travels with flowing water and riffles, which also raise the condition score. Full table: [recovery.md](recovery.md). Pilot plan: [preregistration.md](preregistration.md).

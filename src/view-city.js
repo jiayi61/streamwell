@@ -140,7 +140,7 @@ export function renderCity(root, ctx) {
       h('div', { class: 'card-head' }, h('h3', {}, 'Health measures for OneAquaHealth (k ≥ 5 visitors)'),
         h('button', { class: 'btn small', onclick: () => exportMeasures(measures) }, icon('download'), 'Export FHIR (ObservationHealthMeasureOah)')),
       h('p', { class: 'small muted' }, 'Monthly site averages of the de-identified well-being data volunteers chose to donate. Cells with fewer than five different visitors are suppressed. Exported on the OAH IG profiles with a GroupOah cohort per site.'),
-      h('div', { class: 'table-wrap' }, h('table', { class: 'table' },
+      h('div', { class: 'table-wrap', tabindex: 0, role: 'region', 'aria-label': 'Scrollable table' }, h('table', { class: 'table' },
         h('thead', {}, h('tr', {}, h('th', {}, 'Month'), h('th', {}, 'Site'), h('th', {}, 'Visitors'), h('th', {}, 'Mean restoration'), h('th', {}, 'Felt better'), h('th', {}, 'Came on foot / bike'))),
         h('tbody', {}, measures.slice(0, 14).map((m) => h('tr', {},
           h('td', {}, m.month), h('td', {}, `${m.name} (${m.site})`), h('td', {}, String(m.people)),

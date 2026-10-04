@@ -20,7 +20,7 @@ Do not pitch this as "seven tracks in one." The core product is one loop: **a be
 ## Links
 - Live app: https://jiayi61.github.io/streamwell/
 - Code: https://github.com/jiayi61/streamwell
-- Video: (YouTube / Vimeo link)
+- Video: https://jiayi61.github.io/streamwell/docs/streamwell-demo.mp4 (Devpost's video field needs YouTube or Vimeo: upload `docs/streamwell-demo.mp4` there as Public or Unlisted and paste that link)
 
 ---
 
@@ -66,8 +66,8 @@ Most stream tools stop at ecosystem condition or risk. StreamWell pairs that obs
 **2. Engagement and research value reinforce each other.**  
 The personal insight is the retention mechanism. More repeat visits mean denser ecological data and stronger within-person evidence about human well-being.
 
-**3. It is deliberately honest about uncertainty.**  
-"Not sure" never becomes good or bad, personal patterns show intervals, the city model is labelled associational, simulated data is labelled, and the second look never overwrites a volunteer.
+**3. It is deliberately honest about uncertainty, and it proves it.**  
+"Not sure" never becomes good or bad, personal patterns show intervals, the city model is labelled associational, simulated data is labelled, and the second look never overwrites a volunteer. Because the pilot data are simulated, the true effects are known: in 200 simulated pilots the model's 95% intervals contained the true effect 89–98% of the time, and a no-effect placebo was flagged in only 4% of pilots.
 
 **4. Privacy is part of the data model.**  
 Environmental observations can be shared without personal data; well-being remains personal unless explicitly donated; public/research health measures are k-anonymous aggregates.
@@ -101,7 +101,9 @@ Environmental observations can be shared without personal data; well-being remai
 - **Analysis:** Spearman correlation with bootstrap intervals; visit-level driver model with volunteer-cluster bootstrap; uncertainty intervals for personal insights; k-anonymous health aggregates.
 - **FHIR:** LocationOah, ObservationIndicatorsOah, ObservationHealthMeasureOah, GroupOah, Questionnaire/QuestionnaireResponse, CarePlan, Goal and Consent.
 - **Validation:** example bundles pass StreamWell's OAH-profile structural checks and public base-FHIR R4 HAPI validation with 0 errors.
-- **Quality:** 26 unit tests plus a headless browser walk-through across the complete flow.
+- **Method check:** planted-effect recovery over 200 re-simulated pilots with a placebo feature (`scripts/recovery.py`).
+- **Accessibility:** axe-core WCAG 2.1 A/AA audit of all 20 screens at phone and desktop size; the 32 issues it first found are fixed, 0 remain.
+- **Quality:** 27 unit tests (including deliberately broken FHIR records that must be rejected) plus a headless browser walk-through across the complete flow.
 
 ## Challenges
 
@@ -117,6 +119,9 @@ Environmental observations can be shared without personal data; well-being remai
 - Created a working volunteer flow, personal journal, city/research dashboard, scenario-based early warning and FHIR explorer in one deployable PWA.
 - Documented which data is real, which is simulated and what each model is allowed to claim.
 - Produced reproducible simulation, analysis, FHIR generation, tests and demo tooling in the public repository.
+- Showed the analysis is trustworthy before real data arrive: planted effects recovered with honest intervals, a placebo flagged at the nominal 5% rate.
+- Passed an automated WCAG 2.1 AA audit on every screen.
+- Wrote a pre-registered pilot plan (40 volunteers × 6 visits, 84% power) that an OAH city partner could file before the first visit.
 
 ## What I learned
 
@@ -124,7 +129,7 @@ The biggest citizen-science engagement problem and the biggest One Health data p
 
 ## What's next
 
-Run a summer pilot with an OAH city partner; complete a GDPR data-protection impact assessment; translate the short field UI into Portuguese, French, Dutch, Italian and Norwegian; propose the documented IG additions to HL7 Europe; and replace simulated effect sizes with real paired estimates.
+Run the pre-registered summer pilot (docs/preregistration.md) with an OAH city partner, including a randomised test of whether the personal journal raises return rates; complete a GDPR data-protection impact assessment; translate the short field UI into Portuguese, French, Dutch, Italian and Norwegian; propose the documented IG additions to HL7 Europe; and replace simulated effect sizes with real paired estimates.
 
 ## Built with
 javascript, html5, css3, leaflet, openstreetmap, open-meteo, hl7-fhir, fhir-r4, python, numpy, playwright, github-pages, pwa
@@ -135,7 +140,8 @@ javascript, html5, css3, leaflet, openstreetmap, open-meteo, hl7-fhir, fhir-r4, 
 
 - [x] Repository is public
 - [x] GitHub Pages is deployed
-- [ ] Video (3–5 min) uploaded as public or unlisted on YouTube/Vimeo; link added to Devpost and README
+- [x] Narrated demo video (3 min 56 s) in the repo and on GitHub Pages
+- [ ] Same video uploaded to YouTube or Vimeo (Public or Unlisted) and the link pasted into Devpost
 - [ ] Primary track selected on Devpost
 - [ ] Team/participant setup confirmed on Devpost
 - [ ] Submitted before **4 October 2026, 9:00 pm PDT** (midnight in New York)
