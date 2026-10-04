@@ -1,0 +1,267 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "who5",
+  "url": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/who5",
+  "version": "1.0.0",
+  "name": "WHO5WellBeingIndex",
+  "title": "WHO-5 Well-Being Index",
+  "status": "draft",
+  "experimental": true,
+  "subjectType": [
+    "Patient"
+  ],
+  "copyright": "WHO-5 Well-Being Index, Psychiatric Research Unit, WHO Collaborating Centre in Mental Health, Mental Health Centre North Zealand. Free to use; cite Topp et al. 2015.",
+  "description": "Over the last two weeks. Raw score 0-25, multiplied by 4 for a 0-100 percentage score.",
+  "item": [
+    {
+      "linkId": "who5-1",
+      "text": "I have felt cheerful and in good spirits",
+      "type": "choice",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-5",
+            "display": "All of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-4",
+            "display": "Most of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-3",
+            "display": "More than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-2",
+            "display": "Less than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-1",
+            "display": "Some of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-0",
+            "display": "At no time"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "who5-2",
+      "text": "I have felt calm and relaxed",
+      "type": "choice",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-5",
+            "display": "All of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-4",
+            "display": "Most of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-3",
+            "display": "More than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-2",
+            "display": "Less than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-1",
+            "display": "Some of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-0",
+            "display": "At no time"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "who5-3",
+      "text": "I have felt active and vigorous",
+      "type": "choice",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-5",
+            "display": "All of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-4",
+            "display": "Most of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-3",
+            "display": "More than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-2",
+            "display": "Less than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-1",
+            "display": "Some of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-0",
+            "display": "At no time"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "who5-4",
+      "text": "I woke up feeling fresh and rested",
+      "type": "choice",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-5",
+            "display": "All of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-4",
+            "display": "Most of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-3",
+            "display": "More than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-2",
+            "display": "Less than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-1",
+            "display": "Some of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-0",
+            "display": "At no time"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "who5-5",
+      "text": "My daily life has been filled with things that interest me",
+      "type": "choice",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-5",
+            "display": "All of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-4",
+            "display": "Most of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-3",
+            "display": "More than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-2",
+            "display": "Less than half of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-1",
+            "display": "Some of the time"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "who5-0",
+            "display": "At no time"
+          }
+        }
+      ]
+    }
+  ]
+}

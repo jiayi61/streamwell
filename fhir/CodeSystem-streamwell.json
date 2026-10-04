@@ -1,0 +1,296 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "streamwell",
+  "url": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+  "version": "0.1.0",
+  "name": "StreamWellConcepts",
+  "title": "StreamWell concepts",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "StreamWell (IEEE OneAquaHealth Global Hackathon 2026)",
+  "description": "Concepts used by StreamWell where neither the OneAquaHealth IG (TemporaryOahSystem) nor an international terminology has a code yet. Candidates for the OAH IG are listed in docs/ig-proposal.fsh.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 63,
+  "concept": [
+    {
+      "code": "citizen-science",
+      "display": "Citizen science observation",
+      "definition": "Observation category for observations recorded by volunteers."
+    },
+    {
+      "code": "overall-assessment",
+      "display": "Overall stream quality (OAH three-class scale)",
+      "definition": "The volunteer's overall rating: Good, Moderate or Poor."
+    },
+    {
+      "code": "condition-view",
+      "display": "StreamWell condition view",
+      "definition": "Transparent points-based reading of a stream check, 0-100, on the OAH three-class scale. Decision support, not a validated index."
+    },
+    {
+      "code": "channel-form",
+      "display": "Channel form"
+    },
+    {
+      "code": "bed-type",
+      "display": "Channel bed type"
+    },
+    {
+      "code": "bank-type",
+      "display": "Bank type"
+    },
+    {
+      "code": "habitat",
+      "display": "In-stream habitat"
+    },
+    {
+      "code": "fallen-biomass",
+      "display": "Fallen biomass"
+    },
+    {
+      "code": "water-abstraction",
+      "display": "Water abstraction"
+    },
+    {
+      "code": "barriers",
+      "display": "Barriers across the stream"
+    },
+    {
+      "code": "barrier-count",
+      "display": "Number of barriers"
+    },
+    {
+      "code": "water-height",
+      "display": "Water height"
+    },
+    {
+      "code": "vegetation-cover-left",
+      "display": "Left bank covered by vegetation"
+    },
+    {
+      "code": "vegetation-cover-right",
+      "display": "Right bank covered by vegetation"
+    },
+    {
+      "code": "vegetation-type-left",
+      "display": "Left bank dominant vegetation"
+    },
+    {
+      "code": "vegetation-type-right",
+      "display": "Right bank dominant vegetation"
+    },
+    {
+      "code": "recent-cuts",
+      "display": "Recent vegetation cuts"
+    },
+    {
+      "code": "impervious-left",
+      "display": "Impervious area at left bank"
+    },
+    {
+      "code": "impervious-right",
+      "display": "Impervious area at right bank"
+    },
+    {
+      "code": "outfall-pipes",
+      "display": "Outfall pipes"
+    },
+    {
+      "code": "construction",
+      "display": "Construction works"
+    },
+    {
+      "code": "polluted-discharge",
+      "display": "Polluted discharge"
+    },
+    {
+      "code": "bad-smell",
+      "display": "Bad smell noticed"
+    },
+    {
+      "code": "invasive-species-name",
+      "display": "Invasive species named by volunteer"
+    },
+    {
+      "code": "channel-banks",
+      "display": "Channel & banks (condition view component)"
+    },
+    {
+      "code": "places-for-life",
+      "display": "Places for life (condition view component)"
+    },
+    {
+      "code": "banks-margins",
+      "display": "Banks & margins (condition view component)"
+    },
+    {
+      "code": "water-pressures",
+      "display": "Water & pressures (condition view component)"
+    },
+    {
+      "code": "restoration-change",
+      "display": "Restoration change during a stream visit",
+      "definition": "Mean change in self-rated joy, serenity, anger (reversed) and fear (reversed), from before to after a visit; range -4..4."
+    },
+    {
+      "code": "mean-restoration",
+      "display": "Mean restoration change among visitors",
+      "definition": "Aggregate of restoration-change over visits at a site and period."
+    },
+    {
+      "code": "share-restored",
+      "display": "Share of visits after which visitors felt better"
+    },
+    {
+      "code": "active-travel-share",
+      "display": "Share of visits reached on foot or by bike"
+    },
+    {
+      "code": "visits-count",
+      "display": "Number of visits"
+    },
+    {
+      "code": "people-count",
+      "display": "Number of distinct visitors"
+    },
+    {
+      "code": "visited-location",
+      "display": "Visited location during the period",
+      "definition": "Cohort characteristic for GroupOah."
+    },
+    {
+      "code": "blue-prescription",
+      "display": "Blue prescription (nature-based social prescribing)"
+    },
+    {
+      "code": "stream-walk",
+      "display": "Urban stream walk with StreamWell check-in"
+    },
+    {
+      "code": "who5-score",
+      "display": "WHO-5 percentage score",
+      "definition": "WHO-5 Well-Being Index raw score (0-25) multiplied by 4."
+    },
+    {
+      "code": "scale-1",
+      "display": "Not at all"
+    },
+    {
+      "code": "scale-2",
+      "display": "A little"
+    },
+    {
+      "code": "scale-3",
+      "display": "Moderately"
+    },
+    {
+      "code": "scale-4",
+      "display": "Quite a lot"
+    },
+    {
+      "code": "scale-5",
+      "display": "Very much"
+    },
+    {
+      "code": "tag-waterSound",
+      "display": "Sound of water",
+      "definition": "Visit experience tag (positive)."
+    },
+    {
+      "code": "tag-birds",
+      "display": "Birds or wildlife",
+      "definition": "Visit experience tag (positive)."
+    },
+    {
+      "code": "tag-shade",
+      "display": "Shade and trees",
+      "definition": "Visit experience tag (positive)."
+    },
+    {
+      "code": "tag-quiet",
+      "display": "Quiet",
+      "definition": "Visit experience tag (positive)."
+    },
+    {
+      "code": "tag-clean",
+      "display": "Clean and cared for",
+      "definition": "Visit experience tag (positive)."
+    },
+    {
+      "code": "tag-litter",
+      "display": "Litter",
+      "definition": "Visit experience tag (negative)."
+    },
+    {
+      "code": "tag-smell",
+      "display": "Bad smell",
+      "definition": "Visit experience tag (negative)."
+    },
+    {
+      "code": "tag-noise",
+      "display": "Traffic noise",
+      "definition": "Visit experience tag (negative)."
+    },
+    {
+      "code": "tag-unsafe",
+      "display": "Felt unsafe",
+      "definition": "Visit experience tag (negative)."
+    },
+    {
+      "code": "tag-concrete",
+      "display": "Concrete and walls",
+      "definition": "Visit experience tag (negative)."
+    },
+    {
+      "code": "travel-walk",
+      "display": "Walked",
+      "definition": "Active travel."
+    },
+    {
+      "code": "travel-cycle",
+      "display": "Cycled",
+      "definition": "Active travel."
+    },
+    {
+      "code": "travel-transit",
+      "display": "Bus, tram or metro",
+      "definition": "Passive travel."
+    },
+    {
+      "code": "travel-car",
+      "display": "Car",
+      "definition": "Passive travel."
+    },
+    {
+      "code": "who5-5",
+      "display": "All of the time",
+      "definition": "WHO-5 answer worth 5 points."
+    },
+    {
+      "code": "who5-4",
+      "display": "Most of the time",
+      "definition": "WHO-5 answer worth 4 points."
+    },
+    {
+      "code": "who5-3",
+      "display": "More than half of the time",
+      "definition": "WHO-5 answer worth 3 points."
+    },
+    {
+      "code": "who5-2",
+      "display": "Less than half of the time",
+      "definition": "WHO-5 answer worth 2 points."
+    },
+    {
+      "code": "who5-1",
+      "display": "Some of the time",
+      "definition": "WHO-5 answer worth 1 points."
+    },
+    {
+      "code": "who5-0",
+      "display": "At no time",
+      "definition": "WHO-5 answer worth 0 points."
+    }
+  ]
+}

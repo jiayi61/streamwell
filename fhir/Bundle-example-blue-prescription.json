@@ -1,0 +1,1377 @@
+{
+  "resourceType": "Bundle",
+  "id": "4faacb00-be2a-4d94-9076-4c04cb521ae5",
+  "meta": {
+    "lastUpdated": "2026-10-04T00:29:49.178Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-10-04T00:29:49.178Z",
+  "entry": [
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Patient/sw-demo-2026",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "sw-demo-2026",
+        "identifier": [
+          {
+            "system": "https://jiayi61.github.io/streamwell/fhir/NamingSystem/pseudonym",
+            "value": "demo-2026"
+          }
+        ],
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Practitioner/sw-demo-gp",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "sw-demo-gp",
+        "name": [
+          {
+            "text": "Dr. Demo (fictional general practitioner)"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/CarePlan/sw-blue-prescription",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "sw-blue-prescription",
+        "status": "active",
+        "intent": "plan",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "blue-prescription",
+                "display": "Blue prescription (nature-based social prescribing)"
+              }
+            ],
+            "text": "Blue prescription (nature-based social prescribing)"
+          }
+        ],
+        "title": "Blue prescription: regular urban stream walks with StreamWell check-ins",
+        "description": "Walk to a stream at least twice a week for 20 minutes or more, do the StreamWell check-in and stream check, and avoid streams with an \"Avoid\" advisory.",
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "period": {
+          "start": "2026-08-17",
+          "end": "2026-10-12"
+        },
+        "author": {
+          "reference": "Practitioner/sw-demo-gp"
+        },
+        "goal": [
+          {
+            "reference": "Goal/sw-goal-who5"
+          }
+        ],
+        "activity": [
+          {
+            "outcomeReference": [
+              {
+                "reference": "Observation/demo-1660-restoration"
+              },
+              {
+                "reference": "Observation/demo-1661-restoration"
+              },
+              {
+                "reference": "Observation/demo-1662-restoration"
+              },
+              {
+                "reference": "Observation/demo-1663-restoration"
+              }
+            ],
+            "detail": {
+              "kind": "ServiceRequest",
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                    "code": "stream-walk",
+                    "display": "Urban stream walk with StreamWell check-in"
+                  }
+                ],
+                "text": "Urban stream walk with StreamWell check-in"
+              },
+              "status": "in-progress",
+              "scheduledTiming": {
+                "repeat": {
+                  "frequency": 2,
+                  "period": 1,
+                  "periodUnit": "wk",
+                  "duration": 20,
+                  "durationUnit": "min"
+                }
+              },
+              "location": {
+                "reference": "Location/oah-site-C3"
+              },
+              "description": "Suggested streams: Vale das Flores (C3), Arregaça (C10), Copeira (C15)"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Goal/sw-goal-who5",
+      "resource": {
+        "resourceType": "Goal",
+        "id": "sw-goal-who5",
+        "lifecycleStatus": "active",
+        "description": {
+          "text": "Improve well-being: WHO-5 up by at least 10 points"
+        },
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "target": [
+          {
+            "measure": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-score",
+                  "display": "WHO-5 percentage score"
+                }
+              ],
+              "text": "WHO-5 percentage score"
+            },
+            "detailQuantity": {
+              "value": 54,
+              "comparator": ">=",
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "dueDate": "2026-10-12"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-city-CO",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-city-CO",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "coimbra"
+          }
+        ],
+        "name": "Coimbra",
+        "mode": "instance",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "288520005",
+                "display": "City environment"
+              }
+            ]
+          }
+        ],
+        "position": {
+          "latitude": 40.2033,
+          "longitude": -8.4103
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-site-C3",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-site-C3",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "C3"
+          }
+        ],
+        "name": "Vale das Flores",
+        "description": "OneAquaHealth research site C3 (Coimbra)",
+        "mode": "instance",
+        "type": [
+          {
+            "text": "Urban stream research site"
+          }
+        ],
+        "position": {
+          "latitude": 40.19307,
+          "longitude": -8.41945,
+          "altitude": 22
+        },
+        "partOf": {
+          "reference": "Location/oah-city-CO"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-site-C10",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-site-C10",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "C10"
+          }
+        ],
+        "name": "Arregaça",
+        "description": "OneAquaHealth research site C10 (Coimbra)",
+        "mode": "instance",
+        "type": [
+          {
+            "text": "Urban stream research site"
+          }
+        ],
+        "position": {
+          "latitude": 40.19776,
+          "longitude": -8.41773,
+          "altitude": 23
+        },
+        "partOf": {
+          "reference": "Location/oah-city-CO"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-site-C15",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-site-C15",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "C15"
+          }
+        ],
+        "name": "Copeira",
+        "description": "OneAquaHealth research site C15 (Coimbra)",
+        "mode": "instance",
+        "type": [
+          {
+            "text": "Urban stream research site"
+          }
+        ],
+        "position": {
+          "latitude": 40.17943,
+          "longitude": -8.42117,
+          "altitude": 25
+        },
+        "partOf": {
+          "reference": "Location/oah-city-CO"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-site-C5",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-site-C5",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "C5"
+          }
+        ],
+        "name": "Mina Hospital",
+        "description": "OneAquaHealth research site C5 (Coimbra)",
+        "mode": "instance",
+        "type": [
+          {
+            "text": "Urban stream research site"
+          }
+        ],
+        "position": {
+          "latitude": 40.2186,
+          "longitude": -8.42733,
+          "altitude": 27
+        },
+        "partOf": {
+          "reference": "Location/oah-city-CO"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/QuestionnaireResponse/sw-who5-baseline",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "sw-who5-baseline",
+        "questionnaire": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/who5",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "authored": "2026-08-17",
+        "item": [
+          {
+            "linkId": "who5-1",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-2"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "who5-2",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-3"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "who5-3",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-2"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "who5-4",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-2"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "who5-5",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-2"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/sw-who5-baseline-score",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "sw-who5-baseline-score",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "who5-score",
+              "display": "WHO-5 percentage score"
+            }
+          ],
+          "text": "WHO-5 percentage score"
+        },
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "effectiveDateTime": "2026-08-17",
+        "valueQuantity": {
+          "value": 44,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/sw-who5-baseline"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/QuestionnaireResponse/sw-who5-followup",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "sw-who5-followup",
+        "questionnaire": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/who5",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "authored": "2026-09-28",
+        "item": [
+          {
+            "linkId": "who5-1",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-3"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "who5-2",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-3"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "who5-3",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-3"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "who5-4",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-3"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "who5-5",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "who5-3"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/sw-who5-followup-score",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "sw-who5-followup-score",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "who5-score",
+              "display": "WHO-5 percentage score"
+            }
+          ],
+          "text": "WHO-5 percentage score"
+        },
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 60,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/sw-who5-followup"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/QuestionnaireResponse/demo-1660-qr",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "demo-1660-qr",
+        "questionnaire": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "authored": "2026-09-21",
+        "item": [
+          {
+            "linkId": "before",
+            "item": [
+              {
+                "linkId": "before.joy",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              },
+              {
+                "linkId": "before.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.fear",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "after",
+            "item": [
+              {
+                "linkId": "after.joy",
+                "answer": [
+                  {
+                    "valueInteger": 4
+                  }
+                ]
+              },
+              {
+                "linkId": "after.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              },
+              {
+                "linkId": "after.anger",
+                "answer": [
+                  {
+                    "valueInteger": 1
+                  }
+                ]
+              },
+              {
+                "linkId": "after.fear",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "minutes",
+            "answer": [
+              {
+                "valueInteger": 20
+              }
+            ]
+          },
+          {
+            "linkId": "travel",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-walk"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/QuestionnaireResponse/demo-1661-qr",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "demo-1661-qr",
+        "questionnaire": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "authored": "2026-09-24",
+        "item": [
+          {
+            "linkId": "before",
+            "item": [
+              {
+                "linkId": "before.joy",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              },
+              {
+                "linkId": "before.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.fear",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "after",
+            "item": [
+              {
+                "linkId": "after.joy",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              },
+              {
+                "linkId": "after.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "after.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "after.fear",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "tags",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-litter"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-concrete"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "minutes",
+            "answer": [
+              {
+                "valueInteger": 33
+              }
+            ]
+          },
+          {
+            "linkId": "travel",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-walk"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/QuestionnaireResponse/demo-1662-qr",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "demo-1662-qr",
+        "questionnaire": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "authored": "2026-09-28",
+        "item": [
+          {
+            "linkId": "before",
+            "item": [
+              {
+                "linkId": "before.joy",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.fear",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "after",
+            "item": [
+              {
+                "linkId": "after.joy",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "after.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "after.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "after.fear",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "tags",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-shade"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-clean"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-noise"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-concrete"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "minutes",
+            "answer": [
+              {
+                "valueInteger": 13
+              }
+            ]
+          },
+          {
+            "linkId": "travel",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-walk"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/QuestionnaireResponse/demo-1663-qr",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "demo-1663-qr",
+        "questionnaire": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "authored": "2026-10-01",
+        "item": [
+          {
+            "linkId": "before",
+            "item": [
+              {
+                "linkId": "before.joy",
+                "answer": [
+                  {
+                    "valueInteger": 4
+                  }
+                ]
+              },
+              {
+                "linkId": "before.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              },
+              {
+                "linkId": "before.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.fear",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "after",
+            "item": [
+              {
+                "linkId": "after.joy",
+                "answer": [
+                  {
+                    "valueInteger": 4
+                  }
+                ]
+              },
+              {
+                "linkId": "after.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              },
+              {
+                "linkId": "after.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "after.fear",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "tags",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-birds"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-noise"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "minutes",
+            "answer": [
+              {
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "travel",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-walk"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/demo-1660-restoration",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "demo-1660-restoration",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/event-location",
+            "valueReference": {
+              "reference": "Location/oah-site-C10"
+            }
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "restoration-change",
+              "display": "Restoration change during a stream visit"
+            }
+          ],
+          "text": "Restoration change during a stream visit"
+        },
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "effectiveDateTime": "2026-09-21",
+        "valueQuantity": {
+          "value": 0.75,
+          "unit": "score",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": -4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "high": {
+              "value": 4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
+          }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/demo-1660-qr"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/demo-1661-restoration",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "demo-1661-restoration",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/event-location",
+            "valueReference": {
+              "reference": "Location/oah-site-C5"
+            }
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "restoration-change",
+              "display": "Restoration change during a stream visit"
+            }
+          ],
+          "text": "Restoration change during a stream visit"
+        },
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "effectiveDateTime": "2026-09-24",
+        "valueQuantity": {
+          "value": 0,
+          "unit": "score",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": -4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "high": {
+              "value": 4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
+          }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/demo-1661-qr"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/demo-1662-restoration",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "demo-1662-restoration",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/event-location",
+            "valueReference": {
+              "reference": "Location/oah-site-C3"
+            }
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "restoration-change",
+              "display": "Restoration change during a stream visit"
+            }
+          ],
+          "text": "Restoration change during a stream visit"
+        },
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "effectiveDateTime": "2026-09-28",
+        "valueQuantity": {
+          "value": 0,
+          "unit": "score",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": -4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "high": {
+              "value": 4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
+          }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/demo-1662-qr"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/demo-1663-restoration",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "demo-1663-restoration",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/event-location",
+            "valueReference": {
+              "reference": "Location/oah-site-C15"
+            }
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "restoration-change",
+              "display": "Restoration change during a stream visit"
+            }
+          ],
+          "text": "Restoration change during a stream visit"
+        },
+        "subject": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 0,
+          "unit": "score",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": -4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "high": {
+              "value": 4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
+          }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/demo-1663-qr"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Consent/sw-consent-wellbeing",
+      "resource": {
+        "resourceType": "Consent",
+        "id": "sw-consent-wellbeing",
+        "status": "active",
+        "scope": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+              "code": "research",
+              "display": "Research"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "59284-0",
+                "display": "Patient Consent"
+              }
+            ]
+          }
+        ],
+        "patient": {
+          "reference": "Patient/sw-demo-2026"
+        },
+        "dateTime": "2026-08-17",
+        "policyRule": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "OPTIN",
+              "display": "opt-in"
+            }
+          ]
+        },
+        "provision": {
+          "type": "permit",
+          "purpose": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "HRESCH",
+              "display": "healthcare research"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

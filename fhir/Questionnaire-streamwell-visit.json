@@ -1,0 +1,276 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "streamwell-visit",
+  "url": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit",
+  "version": "1.0.0",
+  "name": "StreamWellVisitCheckIn",
+  "title": "StreamWell visit check-in and check-out",
+  "status": "draft",
+  "experimental": true,
+  "subjectType": [
+    "Patient"
+  ],
+  "description": "Before and after a stream visit: the four feelings recorded by the OneAquaHealth Citizen Science App (joy, serenity, anger, fear) on a 1-5 scale, plus what shaped the visit. The restoration change is the mean improvement across the four feelings.",
+  "item": [
+    {
+      "linkId": "before",
+      "text": "Before you look at the stream",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "before.joy",
+          "text": "How joyful do you feel?",
+          "type": "integer",
+          "required": true,
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+              "valueInteger": 5
+            }
+          ]
+        },
+        {
+          "linkId": "before.serenity",
+          "text": "How calm and at peace do you feel?",
+          "type": "integer",
+          "required": true,
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+              "valueInteger": 5
+            }
+          ]
+        },
+        {
+          "linkId": "before.anger",
+          "text": "How irritated or angry do you feel?",
+          "type": "integer",
+          "required": true,
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+              "valueInteger": 5
+            }
+          ]
+        },
+        {
+          "linkId": "before.fear",
+          "text": "How worried or uneasy do you feel?",
+          "type": "integer",
+          "required": true,
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+              "valueInteger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "after",
+      "text": "After the stream check",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "after.joy",
+          "text": "How joyful do you feel?",
+          "type": "integer",
+          "required": true,
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+              "valueInteger": 5
+            }
+          ]
+        },
+        {
+          "linkId": "after.serenity",
+          "text": "How calm and at peace do you feel?",
+          "type": "integer",
+          "required": true,
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+              "valueInteger": 5
+            }
+          ]
+        },
+        {
+          "linkId": "after.anger",
+          "text": "How irritated or angry do you feel?",
+          "type": "integer",
+          "required": true,
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+              "valueInteger": 5
+            }
+          ]
+        },
+        {
+          "linkId": "after.fear",
+          "text": "How worried or uneasy do you feel?",
+          "type": "integer",
+          "required": true,
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+              "valueInteger": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "tags",
+      "text": "What shaped how you felt?",
+      "type": "choice",
+      "repeats": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-waterSound",
+            "display": "Sound of water"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-birds",
+            "display": "Birds or wildlife"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-shade",
+            "display": "Shade and trees"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-quiet",
+            "display": "Quiet"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-clean",
+            "display": "Clean and cared for"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-litter",
+            "display": "Litter"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-smell",
+            "display": "Bad smell"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-noise",
+            "display": "Traffic noise"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-unsafe",
+            "display": "Felt unsafe"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "tag-concrete",
+            "display": "Concrete and walls"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "minutes",
+      "text": "Minutes spent at the stream",
+      "type": "integer"
+    },
+    {
+      "linkId": "travel",
+      "text": "How did you get here?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "travel-walk",
+            "display": "Walked"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "travel-cycle",
+            "display": "Cycled"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "travel-transit",
+            "display": "Bus, tram or metro"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+            "code": "travel-car",
+            "display": "Car"
+          }
+        }
+      ]
+    }
+  ]
+}

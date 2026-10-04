@@ -1,0 +1,567 @@
+{
+  "resourceType": "Bundle",
+  "id": "9840c260-e6e3-44e9-9d9a-700b024c9f70",
+  "meta": {
+    "lastUpdated": "2026-10-04T00:29:49.177Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-10-04T00:29:49.177Z",
+  "entry": [
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Patient/sw-example",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "sw-example",
+        "identifier": [
+          {
+            "system": "https://jiayi61.github.io/streamwell/fhir/NamingSystem/pseudonym",
+            "value": "example"
+          }
+        ],
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit",
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "streamwell-visit",
+        "url": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit",
+        "version": "1.0.0",
+        "name": "StreamWellVisitCheckIn",
+        "title": "StreamWell visit check-in and check-out",
+        "status": "draft",
+        "experimental": true,
+        "subjectType": [
+          "Patient"
+        ],
+        "description": "Before and after a stream visit: the four feelings recorded by the OneAquaHealth Citizen Science App (joy, serenity, anger, fear) on a 1-5 scale, plus what shaped the visit. The restoration change is the mean improvement across the four feelings.",
+        "item": [
+          {
+            "linkId": "before",
+            "text": "Before you look at the stream",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "before.joy",
+                "text": "How joyful do you feel?",
+                "type": "integer",
+                "required": true,
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                    "valueInteger": 1
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                    "valueInteger": 5
+                  }
+                ]
+              },
+              {
+                "linkId": "before.serenity",
+                "text": "How calm and at peace do you feel?",
+                "type": "integer",
+                "required": true,
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                    "valueInteger": 1
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                    "valueInteger": 5
+                  }
+                ]
+              },
+              {
+                "linkId": "before.anger",
+                "text": "How irritated or angry do you feel?",
+                "type": "integer",
+                "required": true,
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                    "valueInteger": 1
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                    "valueInteger": 5
+                  }
+                ]
+              },
+              {
+                "linkId": "before.fear",
+                "text": "How worried or uneasy do you feel?",
+                "type": "integer",
+                "required": true,
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                    "valueInteger": 1
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                    "valueInteger": 5
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "after",
+            "text": "After the stream check",
+            "type": "group",
+            "item": [
+              {
+                "linkId": "after.joy",
+                "text": "How joyful do you feel?",
+                "type": "integer",
+                "required": true,
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                    "valueInteger": 1
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                    "valueInteger": 5
+                  }
+                ]
+              },
+              {
+                "linkId": "after.serenity",
+                "text": "How calm and at peace do you feel?",
+                "type": "integer",
+                "required": true,
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                    "valueInteger": 1
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                    "valueInteger": 5
+                  }
+                ]
+              },
+              {
+                "linkId": "after.anger",
+                "text": "How irritated or angry do you feel?",
+                "type": "integer",
+                "required": true,
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                    "valueInteger": 1
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                    "valueInteger": 5
+                  }
+                ]
+              },
+              {
+                "linkId": "after.fear",
+                "text": "How worried or uneasy do you feel?",
+                "type": "integer",
+                "required": true,
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                    "valueInteger": 1
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                    "valueInteger": 5
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "tags",
+            "text": "What shaped how you felt?",
+            "type": "choice",
+            "repeats": true,
+            "answerOption": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-waterSound",
+                  "display": "Sound of water"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-birds",
+                  "display": "Birds or wildlife"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-shade",
+                  "display": "Shade and trees"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-quiet",
+                  "display": "Quiet"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-clean",
+                  "display": "Clean and cared for"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-litter",
+                  "display": "Litter"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-smell",
+                  "display": "Bad smell"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-noise",
+                  "display": "Traffic noise"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-unsafe",
+                  "display": "Felt unsafe"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-concrete",
+                  "display": "Concrete and walls"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "minutes",
+            "text": "Minutes spent at the stream",
+            "type": "integer"
+          },
+          {
+            "linkId": "travel",
+            "text": "How did you get here?",
+            "type": "choice",
+            "answerOption": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-walk",
+                  "display": "Walked"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-cycle",
+                  "display": "Cycled"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-transit",
+                  "display": "Bus, tram or metro"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-car",
+                  "display": "Car"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-city-CO",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-city-CO",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "coimbra"
+          }
+        ],
+        "name": "Coimbra",
+        "mode": "instance",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "288520005",
+                "display": "City environment"
+              }
+            ]
+          }
+        ],
+        "position": {
+          "latitude": 40.2033,
+          "longitude": -8.4103
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-site-C15",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-site-C15",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "C15"
+          }
+        ],
+        "name": "Copeira",
+        "description": "OneAquaHealth research site C15 (Coimbra)",
+        "mode": "instance",
+        "type": [
+          {
+            "text": "Urban stream research site"
+          }
+        ],
+        "position": {
+          "latitude": 40.17943,
+          "longitude": -8.42117,
+          "altitude": 25
+        },
+        "partOf": {
+          "reference": "Location/oah-city-CO"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/QuestionnaireResponse/example-visit-qr",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "example-visit-qr",
+        "questionnaire": "https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/sw-example"
+        },
+        "authored": "2026-10-01",
+        "item": [
+          {
+            "linkId": "before",
+            "item": [
+              {
+                "linkId": "before.joy",
+                "answer": [
+                  {
+                    "valueInteger": 4
+                  }
+                ]
+              },
+              {
+                "linkId": "before.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              },
+              {
+                "linkId": "before.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "before.fear",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "after",
+            "item": [
+              {
+                "linkId": "after.joy",
+                "answer": [
+                  {
+                    "valueInteger": 4
+                  }
+                ]
+              },
+              {
+                "linkId": "after.serenity",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              },
+              {
+                "linkId": "after.anger",
+                "answer": [
+                  {
+                    "valueInteger": 2
+                  }
+                ]
+              },
+              {
+                "linkId": "after.fear",
+                "answer": [
+                  {
+                    "valueInteger": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "linkId": "tags",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-birds"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "tag-noise"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "minutes",
+            "answer": [
+              {
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "travel",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "travel-walk"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-restoration",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-restoration",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/event-location",
+            "valueReference": {
+              "reference": "Location/oah-site-C15"
+            }
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "restoration-change",
+              "display": "Restoration change during a stream visit"
+            }
+          ],
+          "text": "Restoration change during a stream visit"
+        },
+        "subject": {
+          "reference": "Patient/sw-example"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "valueQuantity": {
+          "value": 0,
+          "unit": "score",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": -4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "high": {
+              "value": 4,
+              "unit": "score",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            },
+            "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
+          }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/example-visit-qr"
+          }
+        ]
+      }
+    }
+  ]
+}

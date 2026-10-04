@@ -1,0 +1,157 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "oah-citizen-answer",
+  "url": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+  "version": "0.1.0",
+  "name": "OahCitizenAnswer",
+  "title": "OneAquaHealth Citizen Science App answer codes (proposed)",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "StreamWell (IEEE OneAquaHealth Global Hackathon 2026)",
+  "description": "The answer codes used by the OneAquaHealth Citizen Science App lookup endpoints (api.enora-oah.eu /api/citizens/water_flows, water_colors, channel_types, channel_forms, bank_types, habitats, fallen_biomass, vegetation_types, stream_assessments), retrieved 2026-10-03, published here so citizen observations can be validated. Some codes (NAT, ART) are shared by several questions; the question gives the context.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 28,
+  "concept": [
+    {
+      "code": "FAS",
+      "display": "Fast (with waves or high velocity) (A)",
+      "definition": "Fast: waves, splashing or a quick current (used by: waterFlow)"
+    },
+    {
+      "code": "NOR",
+      "display": "Slow (B)",
+      "definition": "Slow: moving gently (used by: waterFlow)"
+    },
+    {
+      "code": "STA",
+      "display": "Stagnant/intermittent (C)",
+      "definition": "Still: barely moving, or only in pools (used by: waterFlow)"
+    },
+    {
+      "code": "DRY",
+      "display": "Dry (D)",
+      "definition": "Dry: no water in the channel (used by: waterFlow)"
+    },
+    {
+      "code": "CL",
+      "display": "Clear/transparent (A)",
+      "definition": "Clear: you can see the bottom where it is shallow (used by: waterColor)"
+    },
+    {
+      "code": "MU",
+      "display": "Muddy/turbid (B)",
+      "definition": "Muddy: brown or cloudy (used by: waterColor)"
+    },
+    {
+      "code": "FO",
+      "display": "Has foam (C)",
+      "definition": "Foamy: foam or bubbles that stay on the surface (used by: waterColor)"
+    },
+    {
+      "code": "CO",
+      "display": "Has colors/altered color (D)",
+      "definition": "Strange colour: green, milky, grey, oily or other (used by: waterColor)"
+    },
+    {
+      "code": "FLAT",
+      "display": "Flat (Α)",
+      "definition": "Wide and flat (used by: channelForm)"
+    },
+    {
+      "code": "U",
+      "display": "U Shape (Β)",
+      "definition": "U shape (used by: channelForm)"
+    },
+    {
+      "code": "V",
+      "display": "V Shape (C)",
+      "definition": "V shape: steep sides, narrow bottom (used by: channelForm)"
+    },
+    {
+      "code": "NAT",
+      "display": "Natural (Α)",
+      "definition": "Natural: stones, gravel, sand or mud (used by: bottomChannelType, banksChannelType)"
+    },
+    {
+      "code": "ART",
+      "display": "Artificial (concrete or stones with concrete) (Β)",
+      "definition": "Built: concrete, or stones set in concrete (used by: bottomChannelType, banksChannelType)"
+    },
+    {
+      "code": "LAS",
+      "display": "Layed stones with no concrete (C)",
+      "definition": "Loose stones: stones laid without concrete (used by: banksChannelType)"
+    },
+    {
+      "code": "SB",
+      "display": "Sand banks (A)",
+      "definition": "Sand banks: sand along the edge (used by: habitats)"
+    },
+    {
+      "code": "SI",
+      "display": "Sand islands (B)",
+      "definition": "Sand islands: sand or gravel in the middle (used by: habitats)"
+    },
+    {
+      "code": "SD",
+      "display": "Stone deposits (C)",
+      "definition": "Stones: piles of pebbles or rocks (used by: habitats)"
+    },
+    {
+      "code": "RF",
+      "display": "Riffles, rapids, falls (D)",
+      "definition": "Riffles or small falls: water rushing over stones (used by: habitats)"
+    },
+    {
+      "code": "AV",
+      "display": "Aquatic vegetation (E)",
+      "definition": "Water plants: plants growing in the water (used by: habitats)"
+    },
+    {
+      "code": "FT",
+      "display": "Fallen trees (A)",
+      "definition": "Fallen trees (used by: fallenBiomassTypes)"
+    },
+    {
+      "code": "FB",
+      "display": "Fallen branches (B)",
+      "definition": "Fallen branches (used by: fallenBiomassTypes)"
+    },
+    {
+      "code": "FL",
+      "display": "Deposits of fallen leaves (C)",
+      "definition": "Piles of leaves (used by: fallenBiomassTypes)"
+    },
+    {
+      "code": "H",
+      "display": "Herbs (A)",
+      "definition": "Grass and herbs (used by: vegetationType)"
+    },
+    {
+      "code": "B",
+      "display": "Shrubs (B)",
+      "definition": "Shrubs (used by: vegetationType)"
+    },
+    {
+      "code": "T",
+      "display": "Trees (C)",
+      "definition": "Trees (used by: vegetationType)"
+    },
+    {
+      "code": "GOOD",
+      "display": "Good quality",
+      "definition": "Good: natural channel, plants on the banks, water looks good, lots of life (used by: overallAssessment)"
+    },
+    {
+      "code": "MODERATE",
+      "display": "Moderate quality",
+      "definition": "Moderate: some changes, but still plants on the banks and water looks fine (used by: overallAssessment)"
+    },
+    {
+      "code": "POOR",
+      "display": "Poor quality",
+      "definition": "Poor: heavily built-up, few plants or habitats, signs of pollution (used by: overallAssessment)"
+    }
+  ]
+}

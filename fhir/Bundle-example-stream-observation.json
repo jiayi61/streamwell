@@ -1,0 +1,970 @@
+{
+  "resourceType": "Bundle",
+  "id": "be2120e3-a1fe-4bf9-9bc0-f3d0dd1fbb9d",
+  "meta": {
+    "lastUpdated": "2026-10-04T00:29:49.177Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-10-04T00:29:49.177Z",
+  "entry": [
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-city-CO",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-city-CO",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "coimbra"
+          }
+        ],
+        "name": "Coimbra",
+        "mode": "instance",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "288520005",
+                "display": "City environment"
+              }
+            ]
+          }
+        ],
+        "position": {
+          "latitude": 40.2033,
+          "longitude": -8.4103
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-site-C15",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-site-C15",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "C15"
+          }
+        ],
+        "name": "Copeira",
+        "description": "OneAquaHealth research site C15 (Coimbra)",
+        "mode": "instance",
+        "type": [
+          {
+            "text": "Urban stream research site"
+          }
+        ],
+        "position": {
+          "latitude": 40.17943,
+          "longitude": -8.42117,
+          "altitude": 25
+        },
+        "partOf": {
+          "reference": "Location/oah-city-CO"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-hydrology",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-hydrology",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "citizen-science",
+                "display": "Citizen science observation"
+              }
+            ],
+            "text": "Citizen science observation"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+              "code": "hydrology",
+              "display": "Hydrology of the stream"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Location/oah-site-C15"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "performer": [
+          {
+            "display": "Citizen scientist (anonymous, StreamWell)"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+              "code": "STA",
+              "display": "Stagnant/intermittent (C)"
+            }
+          ],
+          "text": "Still"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "water-abstraction",
+                  "display": "Water abstraction"
+                }
+              ],
+              "text": "Water abstraction"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "absent",
+                  "display": "Absent"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "barriers",
+                  "display": "Barriers across the stream"
+                }
+              ],
+              "text": "Barriers across the stream"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "present",
+                  "display": "Present"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "barrier-count",
+                  "display": "Number of barriers"
+                }
+              ],
+              "text": "Number of barriers"
+            },
+            "valueQuantity": {
+              "value": 1,
+              "unit": "barriers",
+              "system": "http://unitsofmeasure.org",
+              "code": "{count}"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-morphology",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-morphology",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "citizen-science",
+                "display": "Citizen science observation"
+              }
+            ],
+            "text": "Citizen science observation"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+              "code": "morophology",
+              "display": "Morphology of the streams"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Location/oah-site-C15"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "performer": [
+          {
+            "display": "Citizen scientist (anonymous, StreamWell)"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "channel-form",
+                  "display": "Channel form"
+                }
+              ],
+              "text": "Channel form"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+                  "code": "U",
+                  "display": "U Shape (Β)"
+                }
+              ],
+              "text": "U shape"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "bed-type",
+                  "display": "Channel bed type"
+                }
+              ],
+              "text": "Channel bed type"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+                  "code": "NAT",
+                  "display": "Natural (Α)"
+                }
+              ],
+              "text": "Natural"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "bank-type",
+                  "display": "Bank type"
+                }
+              ],
+              "text": "Bank type"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+                  "code": "NAT",
+                  "display": "Natural (Α)"
+                }
+              ],
+              "text": "Natural"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "habitat",
+                  "display": "In-stream habitat"
+                }
+              ],
+              "text": "In-stream habitat"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+                  "code": "SB",
+                  "display": "Sand banks (A)"
+                }
+              ],
+              "text": "Sand banks"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "habitat",
+                  "display": "In-stream habitat"
+                }
+              ],
+              "text": "In-stream habitat"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+                  "code": "SD",
+                  "display": "Stone deposits (C)"
+                }
+              ],
+              "text": "Stones"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-riparian",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-riparian",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "citizen-science",
+                "display": "Citizen science observation"
+              }
+            ],
+            "text": "Citizen science observation"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+              "code": "riparianVegetation",
+              "display": "Riparian vegetation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Location/oah-site-C15"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "performer": [
+          {
+            "display": "Citizen scientist (anonymous, StreamWell)"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "vegetation-cover-left",
+                  "display": "Left bank covered by vegetation"
+                }
+              ],
+              "text": "Left bank covered by vegetation"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "present",
+                  "display": "Present"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "vegetation-cover-right",
+                  "display": "Right bank covered by vegetation"
+                }
+              ],
+              "text": "Right bank covered by vegetation"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "present",
+                  "display": "Present"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "vegetation-type-left",
+                  "display": "Left bank dominant vegetation"
+                }
+              ],
+              "text": "Left bank dominant vegetation"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+                  "code": "B",
+                  "display": "Shrubs (B)"
+                }
+              ],
+              "text": "Shrubs"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "vegetation-type-right",
+                  "display": "Right bank dominant vegetation"
+                }
+              ],
+              "text": "Right bank dominant vegetation"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+                  "code": "B",
+                  "display": "Shrubs (B)"
+                }
+              ],
+              "text": "Shrubs"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "recent-cuts",
+                  "display": "Recent vegetation cuts"
+                }
+              ],
+              "text": "Recent vegetation cuts"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "present",
+                  "display": "Present"
+                }
+              ]
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Second look \"The left bank: mostly bare, with trees as tallest plants?\": volunteer kept the answer (a few old trees on a mown bank)."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-landuse",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-landuse",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "citizen-science",
+                "display": "Citizen science observation"
+              }
+            ],
+            "text": "Citizen science observation"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+              "code": "LandUse",
+              "display": "Land use in the margins"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Location/oah-site-C15"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "performer": [
+          {
+            "display": "Citizen scientist (anonymous, StreamWell)"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "impervious-left",
+                  "display": "Impervious area at left bank"
+                }
+              ],
+              "text": "Impervious area at left bank"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "present",
+                  "display": "Present"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "impervious-right",
+                  "display": "Impervious area at right bank"
+                }
+              ],
+              "text": "Impervious area at right bank"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "absent",
+                  "display": "Absent"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "outfall-pipes",
+                  "display": "Outfall pipes"
+                }
+              ],
+              "text": "Outfall pipes"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "absent",
+                  "display": "Absent"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "construction",
+                  "display": "Construction works"
+                }
+              ],
+              "text": "Construction works"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "absent",
+                  "display": "Absent"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-water-aspect",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-water-aspect",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "citizen-science",
+                "display": "Citizen science observation"
+              }
+            ],
+            "text": "Citizen science observation"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+              "code": "foam",
+              "display": "Foam/colour/smell"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Location/oah-site-C15"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "performer": [
+          {
+            "display": "Citizen scientist (anonymous, StreamWell)"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+              "code": "MU",
+              "display": "Muddy/turbid (B)"
+            }
+          ],
+          "text": "Muddy"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "polluted-discharge",
+                  "display": "Polluted discharge"
+                }
+              ],
+              "text": "Polluted discharge"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+                  "code": "absent",
+                  "display": "Absent"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-invasive",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-invasive",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "citizen-science",
+                "display": "Citizen science observation"
+              }
+            ],
+            "text": "Citizen science observation"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+              "code": "invasiveOrganisms",
+              "display": "Invasive invertebrate, plants and fish"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Location/oah-site-C15"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "performer": [
+          {
+            "display": "Citizen scientist (anonymous, StreamWell)"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu",
+              "code": "absent",
+              "display": "Absent"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-overall",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-overall",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "citizen-science",
+                "display": "Citizen science observation"
+              }
+            ],
+            "text": "Citizen science observation"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "overall-assessment",
+              "display": "Overall stream quality (OAH three-class scale)"
+            }
+          ],
+          "text": "Overall stream quality (OAH three-class scale)"
+        },
+        "subject": {
+          "reference": "Location/oah-site-C15"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "performer": [
+          {
+            "display": "Citizen scientist (anonymous, StreamWell)"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/oah-citizen-answer",
+              "code": "GOOD",
+              "display": "Good quality"
+            }
+          ],
+          "text": "Good"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/example-visit-condition-view",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-visit-condition-view",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                "code": "citizen-science",
+                "display": "Citizen science observation"
+              }
+            ],
+            "text": "Citizen science observation"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "condition-view",
+              "display": "StreamWell condition view (decision support, not a validated index)"
+            }
+          ],
+          "text": "StreamWell condition view (decision support, not a validated index)"
+        },
+        "subject": {
+          "reference": "Location/oah-site-C15"
+        },
+        "effectiveDateTime": "2026-10-01",
+        "performer": [
+          {
+            "display": "StreamWell condition view v1 (rules in src/score.js)"
+          }
+        ],
+        "valueQuantity": {
+          "value": 70,
+          "unit": "points",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "channel-banks",
+                  "display": "Channel & banks"
+                }
+              ],
+              "text": "Channel & banks"
+            },
+            "valueQuantity": {
+              "value": 25,
+              "unit": "points of 25",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "places-for-life",
+                  "display": "Places for life"
+                }
+              ],
+              "text": "Places for life"
+            },
+            "valueQuantity": {
+              "value": 11,
+              "unit": "points of 25",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "banks-margins",
+                  "display": "Banks & margins"
+                }
+              ],
+              "text": "Banks & margins"
+            },
+            "valueQuantity": {
+              "value": 19.6,
+              "unit": "points of 25",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "water-pressures",
+                  "display": "Water & pressures"
+                }
+              ],
+              "text": "Water & pressures"
+            },
+            "valueQuantity": {
+              "value": 14,
+              "unit": "points of 25",
+              "system": "http://unitsofmeasure.org",
+              "code": "{score}"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "text": "GOOD (confidence High)"
+          }
+        ],
+        "derivedFrom": [
+          {
+            "reference": "Observation/example-visit-hydrology"
+          },
+          {
+            "reference": "Observation/example-visit-morphology"
+          },
+          {
+            "reference": "Observation/example-visit-riparian"
+          },
+          {
+            "reference": "Observation/example-visit-landuse"
+          },
+          {
+            "reference": "Observation/example-visit-water-aspect"
+          },
+          {
+            "reference": "Observation/example-visit-invasive"
+          },
+          {
+            "reference": "Observation/example-visit-overall"
+          }
+        ]
+      }
+    }
+  ]
+}

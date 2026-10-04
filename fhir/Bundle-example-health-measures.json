@@ -1,0 +1,385 @@
+{
+  "resourceType": "Bundle",
+  "id": "3dafab87-8373-4138-ac52-5fcca4283209",
+  "meta": {
+    "lastUpdated": "2026-10-04T00:29:49.178Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-10-04T00:29:49.178Z",
+  "entry": [
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-city-BE",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-city-BE",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "benevento"
+          }
+        ],
+        "name": "Benevento",
+        "mode": "instance",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "288520005",
+                "display": "City environment"
+              }
+            ]
+          }
+        ],
+        "position": {
+          "latitude": 41.1291,
+          "longitude": 14.7868
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-site-BN1",
+      "resource": {
+        "resourceType": "Location",
+        "id": "oah-site-BN1",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/location-oah"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oneaquahealth.eu/location-id",
+            "value": "BN1"
+          }
+        ],
+        "name": "Capodimonte",
+        "description": "OneAquaHealth research site BN1 (Benevento)",
+        "mode": "instance",
+        "type": [
+          {
+            "text": "Urban stream research site"
+          }
+        ],
+        "position": {
+          "latitude": 41.13231,
+          "longitude": 14.80039,
+          "altitude": 135
+        },
+        "partOf": {
+          "reference": "Location/oah-city-BE"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Group/sw-cohort-BN1-2026-09",
+      "resource": {
+        "resourceType": "Group",
+        "id": "sw-cohort-BN1-2026-09",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/group-oah"
+          ]
+        },
+        "type": "person",
+        "actual": false,
+        "name": "Adult StreamWell visitors at OAH site BN1, 2026-09",
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "30525-0",
+                  "display": "Age"
+                }
+              ]
+            },
+            "valueRange": {
+              "low": {
+                "value": 18,
+                "unit": "a",
+                "system": "http://unitsofmeasure.org",
+                "code": "a"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "visited-location",
+                  "display": "Visited location during the period"
+                }
+              ],
+              "text": "Visited location during the period"
+            },
+            "valueReference": {
+              "reference": "Location/oah-site-BN1"
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/sw-hm-BN1-2026-09-restoration",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "sw-hm-BN1-2026-09-restoration",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-health-measure-oah"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "mean-restoration",
+              "display": "Mean restoration change among visitors"
+            }
+          ],
+          "text": "Mean restoration change among visitors"
+        },
+        "subject": {
+          "reference": "Location/oah-site-BN1"
+        },
+        "focus": [
+          {
+            "reference": "Group/sw-cohort-BN1-2026-09"
+          }
+        ],
+        "effectivePeriod": {
+          "start": "2026-09-01",
+          "end": "2026-09-30"
+        },
+        "performer": [
+          {
+            "display": "StreamWell aggregation service (k-anonymity k=5)"
+          }
+        ],
+        "valueQuantity": {
+          "value": 0.5,
+          "unit": "score",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "visits-count",
+                  "display": "Number of visits"
+                }
+              ],
+              "text": "Number of visits"
+            },
+            "valueQuantity": {
+              "value": 5,
+              "unit": "visits",
+              "system": "http://unitsofmeasure.org",
+              "code": "{count}"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "people-count",
+                  "display": "Number of distinct visitors"
+                }
+              ],
+              "text": "Number of distinct visitors"
+            },
+            "valueQuantity": {
+              "value": 5,
+              "unit": "people",
+              "system": "http://unitsofmeasure.org",
+              "code": "{count}"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/sw-hm-BN1-2026-09-restored-share",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "sw-hm-BN1-2026-09-restored-share",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-health-measure-oah"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "share-restored",
+              "display": "Share of visits after which visitors felt better"
+            }
+          ],
+          "text": "Share of visits after which visitors felt better"
+        },
+        "subject": {
+          "reference": "Location/oah-site-BN1"
+        },
+        "focus": [
+          {
+            "reference": "Group/sw-cohort-BN1-2026-09"
+          }
+        ],
+        "effectivePeriod": {
+          "start": "2026-09-01",
+          "end": "2026-09-30"
+        },
+        "performer": [
+          {
+            "display": "StreamWell aggregation service (k-anonymity k=5)"
+          }
+        ],
+        "valueQuantity": {
+          "value": 80,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "visits-count",
+                  "display": "Number of visits"
+                }
+              ],
+              "text": "Number of visits"
+            },
+            "valueQuantity": {
+              "value": 5,
+              "unit": "visits",
+              "system": "http://unitsofmeasure.org",
+              "code": "{count}"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "people-count",
+                  "display": "Number of distinct visitors"
+                }
+              ],
+              "text": "Number of distinct visitors"
+            },
+            "valueQuantity": {
+              "value": 5,
+              "unit": "people",
+              "system": "http://unitsofmeasure.org",
+              "code": "{count}"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Observation/sw-hm-BN1-2026-09-active-travel",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "sw-hm-BN1-2026-09-active-travel",
+        "meta": {
+          "profile": [
+            "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-health-measure-oah"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+              "code": "active-travel-share",
+              "display": "Share of visits reached on foot or by bike (physical activity)"
+            }
+          ],
+          "text": "Share of visits reached on foot or by bike (physical activity)"
+        },
+        "subject": {
+          "reference": "Location/oah-site-BN1"
+        },
+        "focus": [
+          {
+            "reference": "Group/sw-cohort-BN1-2026-09"
+          }
+        ],
+        "effectivePeriod": {
+          "start": "2026-09-01",
+          "end": "2026-09-30"
+        },
+        "performer": [
+          {
+            "display": "StreamWell aggregation service (k-anonymity k=5)"
+          }
+        ],
+        "valueQuantity": {
+          "value": 80,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "visits-count",
+                  "display": "Number of visits"
+                }
+              ],
+              "text": "Number of visits"
+            },
+            "valueQuantity": {
+              "value": 5,
+              "unit": "visits",
+              "system": "http://unitsofmeasure.org",
+              "code": "{count}"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://jiayi61.github.io/streamwell/fhir/CodeSystem/streamwell",
+                  "code": "people-count",
+                  "display": "Number of distinct visitors"
+                }
+              ],
+              "text": "Number of distinct visitors"
+            },
+            "valueQuantity": {
+              "value": 5,
+              "unit": "people",
+              "system": "http://unitsofmeasure.org",
+              "code": "{count}"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
