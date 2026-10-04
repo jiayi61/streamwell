@@ -1,9 +1,8 @@
 // Thin wrapper around Leaflet (vendored, BSD-2-Clause) with a list fallback
-// if the map library cannot load. Tiles: CARTO basemaps on OpenStreetMap data.
+// if the map library cannot load. Tiles: OpenStreetMap (OSMF tile servers, no
+// API key), shown in calm greys by CSS (.basemap) so the site colours stand out.
 
 import { h } from './ui.js';
-
-const dark = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light';
 
 export function createMap(el, { center = [48.5, 6.5], zoom = 4, onReady } = {}) {
   if (!window.L) {
@@ -12,11 +11,10 @@ export function createMap(el, { center = [48.5, 6.5], zoom = 4, onReady } = {}) 
   }
   const L = window.L;
   const map = L.map(el, { zoomControl: true, attributionControl: true, scrollWheelZoom: false }).setView(center, zoom);
-  const style = dark() ? 'dark_all' : 'light_all';
-  L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
-    subdomains: 'abcd',
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    className: 'basemap',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
   map.on('focus', () => map.scrollWheelZoom.enable());
   map.on('blur', () => map.scrollWheelZoom.disable());

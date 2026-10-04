@@ -1,7 +1,7 @@
 // Offline support: cache the app shell on install. App files are fetched
 // network-first (so updates arrive) with the cache as offline fallback; other
 // origins (map tiles, weather, FHIR servers) always go to the network.
-const CACHE = 'streamwell-v1';
+const CACHE = 'streamwell-v2';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'assets/styles.css', 'assets/icon.svg',
   'vendor/leaflet/leaflet.js', 'vendor/leaflet/leaflet.css', 'data/demo-visits.json',
@@ -22,10 +22,14 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET' || url.origin !== self.location.origin) return;
+  // The demo video and its captions are large and streamed in ranges: leave them to the browser.
+  if (e.request.headers.has('range') || /\.(mp4|srt)$/.test(url.pathname)) return;
   e.respondWith(
     fetch(e.request).then((res) => {
-      const copy = res.clone();
-      caches.open(CACHE).then((c) => c.put(e.request, copy));
+      if (res.status === 200) {
+        const copy = res.clone();
+        caches.open(CACHE).then((c) => c.put(e.request, copy));
+      }
       return res;
     }).catch(() => caches.match(e.request).then((r) => r || caches.match('index.html'))),
   );

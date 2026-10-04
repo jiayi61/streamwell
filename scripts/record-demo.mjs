@@ -2,14 +2,14 @@
 // Usage: node scripts/record-demo.mjs [outDir]
 //   needs Playwright (npm i --no-save playwright ffmpeg-static) and, for the
 //   voice-over, macOS `say`; set NARRATE=0 for a silent captioned version.
-// The app is served locally; map tiles (CARTO) and live weather (Open-Meteo)
+// The app is served locally; map tiles (OpenStreetMap) and live weather (Open-Meteo)
 // load from the internet, everything else external is blocked.
 import { createServer } from 'node:http';
 import { readFile, mkdir } from 'node:fs/promises';
 import { extname, join, resolve } from 'node:path';
 import { createRequire } from 'node:module';
 import { execFileSync } from 'node:child_process';
-import { existsSync, renameSync } from 'node:fs';
+import { existsSync, renameSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 const require = createRequire(import.meta.url);
@@ -34,7 +34,7 @@ const W = 1280;
 const H = 720;
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: W, height: H }, recordVideo: { dir: out, size: { width: W, height: H } } });
-await ctx.route(/^https?:\/\/(?!127\.0\.0\.1|[a-d]\.basemaps\.cartocdn\.com|api\.open-meteo\.com)/, (r) => r.abort());
+await ctx.route(/^https?:\/\/(?!127\.0\.0\.1|tile\.openstreetmap\.org|api\.open-meteo\.com)/, (r) => r.abort());
 const page = await ctx.newPage();
 const t0 = Date.now();
 const wait = (ms) => page.waitForTimeout(ms);
@@ -53,7 +53,7 @@ function speak(text) {
   }
   const info = execFileSync('afinfo', [file]).toString();
   const ms = Math.round(parseFloat(/estimated duration: ([\d.]+)/.exec(info)[1]) * 1000);
-  clips.push({ file, at: Date.now() - t0 + 250 });
+  clips.push({ file, text, at: Date.now() - t0 + 250, ms });
   return ms + 250;
 }
 
@@ -233,6 +233,7 @@ await scrollTo(860, 1100);
 await cap('Healthier streams, more restored people: the OneAquaHealth hypothesis, made measurable.', '', 3200, 'Healthier streams, more restored people, made measurable.');
 await cap('What would help people most: feeling unsafe, bad smells and litter cost the most.', 'Sound of water and tree-lined banks add the most. Each bar becomes an action.', 4600,
   'Feeling unsafe, smells and litter cost the most. Each becomes an action for the city.');
+await clearCap();
 await scrollTo(0, 900);
 const weatherSelect = page.locator('select').nth(3);
 await moveTo(weatherSelect);
@@ -283,3 +284,22 @@ if (clips.length) {
 args.push('-c:v', 'libx264', '-preset', 'medium', '-crf', '26', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', mp4);
 execFileSync(ffmpeg, args);
 console.log('video:', mp4, `${((Date.now() - t0) / 1000).toFixed(0)} s`);
+
+// Captions (SRT) from the narration: one cue per sentence, timed in proportion to its length.
+const shown = (t) => t.replace(/H L 7/g, 'HL7').replace(/k anonymous/g, 'k-anonymous').replace(/safe walk/g, 'safe-walk')
+  .replace(/lab health risk/g, 'lab health-risk').replace(/tree lined/g, 'tree-lined').replace(/honest not sure/g, 'honest "not sure"');
+const stamp = (ms) => {
+  const t = Math.max(0, Math.round(ms));
+  const pad = (n, w = 2) => String(n).padStart(w, '0');
+  return `${pad(Math.floor(t / 3600000))}:${pad(Math.floor(t / 60000) % 60)}:${pad(Math.floor(t / 1000) % 60)},${pad(t % 1000, 3)}`;
+};
+const cues = [];
+for (const c of clips) {
+  const parts = shown(c.text).match(/[^.!?]+[.!?]*/g).map((x) => x.trim()).filter(Boolean);
+  const total = parts.reduce((a, x) => a + x.length, 0);
+  let t = c.at;
+  for (const x of parts) { const d = c.ms * x.length / total; cues.push([t, t + d, x]); t += d; }
+}
+const srt = join(out, 'streamwell-demo.srt');
+writeFileSync(srt, cues.map(([a, b, x], i) => `${i + 1}\n${stamp(a)} --> ${stamp(b)}\n${x}\n`).join('\n'));
+console.log('captions:', srt, `${cues.length} cues`);

@@ -9,7 +9,7 @@ Built for the **IEEE OneAquaHealth Global Hackathon 2026** · **Primary track: C
 [![tests](https://github.com/jiayi61/streamwell/actions/workflows/test.yml/badge.svg)](https://github.com/jiayi61/streamwell/actions/workflows/test.yml) ![license](https://img.shields.io/badge/license-MIT-blue) ![FHIR R4](https://img.shields.io/badge/HL7%20FHIR-R4%20%C2%B7%20OneAquaHealth%20IG-0d6e86)
 
 - **Live app:** https://jiayi61.github.io/streamwell/ (works on a phone, installs as an app, runs offline)
-- **Demo video (4 min, narrated):** [watch](https://jiayi61.github.io/streamwell/docs/streamwell-demo.mp4) · [file in this repo](docs/streamwell-demo.mp4)
+- **Demo video (4 min, narrated):** [watch](https://jiayi61.github.io/streamwell/docs/streamwell-demo.mp4) · [file in this repo](docs/streamwell-demo.mp4) · [captions / transcript](docs/streamwell-demo.srt)
 - **Run locally:** `python3 -m http.server 8000` and open http://localhost:8000 (no build step, no dependencies)
 
 **Evidence at a glance**
@@ -209,6 +209,6 @@ node scripts/build-fhir.mjs      # regenerate fhir/ (CodeSystems, Questionnaires
 
 ## Credits
 
-Data: OneAquaHealth project (Horizon Europe grant 101086521) public API; OneAquaHealth FHIR IG by HL7 Europe and partners; weather by Open-Meteo (CC BY 4.0); map data © OpenStreetMap contributors, tiles © CARTO; Leaflet (BSD-2-Clause). WHO-5 Well-Being Index © Psychiatric Research Unit, Mental Health Centre North Zealand (free to use). StreamWell is an independent hackathon project and is not affiliated with or endorsed by the OneAquaHealth consortium.
+Data: OneAquaHealth project (Horizon Europe grant 101086521) public API; OneAquaHealth FHIR IG by HL7 Europe and partners; weather by Open-Meteo (CC BY 4.0); map data and tiles © OpenStreetMap contributors (ODbL), served by the OpenStreetMap Foundation; Leaflet (BSD-2-Clause). WHO-5 Well-Being Index © Psychiatric Research Unit, Mental Health Centre North Zealand (free to use). StreamWell is an independent hackathon project and is not affiliated with or endorsed by the OneAquaHealth consortium.
 
 Made by Jiayi Liu (Columbia University). Code under the [MIT License](LICENSE).

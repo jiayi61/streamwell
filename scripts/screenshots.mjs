@@ -18,13 +18,14 @@ const server = createServer(async (req, res) => {
 const base = `http://127.0.0.1:${server.address().port}/`;
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1280, height: 820 }, deviceScaleFactor: 1.5 });
-await ctx.route(/^https?:\/\/(?!127\.0\.0\.1)/, (r) => r.abort());
+// Map tiles (OpenStreetMap) and live weather (Open-Meteo) load; any other host is blocked.
+await ctx.route(/^https?:\/\/(?!127\.0\.0\.1|tile\.openstreetmap\.org|api\.open-meteo\.com)/, (r) => r.abort());
 const p = await ctx.newPage();
 const shot = async (name, clip) => { await p.screenshot({ path: join(out, `${name}.png`), ...(clip ? { clip } : {}) }); console.log('saved', name); };
 const click = async (t) => { await p.getByRole('button', { name: t }).first().click(); await p.waitForTimeout(250); };
 
 await p.goto(base, { waitUntil: 'domcontentloaded' }); await p.waitForTimeout(4000); await shot('home');
-await p.goto(`${base}#/city`); await p.waitForTimeout(1800); await p.evaluate(() => window.scrollTo(0, 560)); await p.waitForTimeout(400); await shot('city');
+await p.goto(`${base}#/city`); await p.waitForTimeout(3500); await p.evaluate(() => window.scrollTo(0, 560)); await p.waitForTimeout(400); await shot('city');
 await p.goto(`${base}#/fhir`); await p.waitForTimeout(1200); await p.evaluate(() => window.scrollTo(0, 300)); await p.waitForTimeout(300); await shot('fhir');
 await p.goto(`${base}#/me`); await p.waitForTimeout(1200); await p.evaluate(() => window.scrollTo(0, 700)); await p.waitForTimeout(300); await shot('journal');
 await p.goto(`${base}#/visit`); await p.waitForTimeout(800);

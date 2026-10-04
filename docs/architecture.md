@@ -26,7 +26,7 @@ flowchart TB
   OM --> C
   F -->|download / opt-in share| OUT[FHIR R4 JSON]
   F -->|optional, demo data only| HAPI[hapi.fhir.org test server]
-  T[CARTO / OSM tiles] --> UI
+  T[OpenStreetMap tiles] --> UI
 ```
 
 ## Design choices

@@ -15,12 +15,12 @@ Strong secondary alignment:
 - **Data-to-Insight** — paired ecosystem + well-being data, city dashboard, lab/citizen disagreement and actionable drivers.
 - **Digital Health Standards** — OAH FHIR IG, privacy-separated records and k-anonymous health measures.
 
-Do not pitch this as "seven tracks in one." The core product is one loop: **a better reason to return creates the paired data OneAquaHealth needs to measure the stream–human-health link.**
+> Note for the submitter (do not paste): do not pitch this as "seven tracks in one." The core product is one loop: **a better reason to return creates the paired data OneAquaHealth needs to measure the stream–human-health link.**
 
 ## Links
 - Live app: https://jiayi61.github.io/streamwell/
 - Code: https://github.com/jiayi61/streamwell
-- Video: https://jiayi61.github.io/streamwell/docs/streamwell-demo.mp4 (Devpost's video field needs YouTube or Vimeo: upload `docs/streamwell-demo.mp4` there as Public or Unlisted and paste that link)
+- Video: https://jiayi61.github.io/streamwell/docs/streamwell-demo.mp4 (Devpost's video field needs YouTube or Vimeo: upload `docs/streamwell-demo.mp4` there as Public or Unlisted, add `docs/streamwell-demo.srt` as English captions, and paste that link)
 
 ---
 
@@ -119,7 +119,7 @@ Environmental observations can be shared without personal data; well-being remai
 - Created a working volunteer flow, personal journal, city/research dashboard, scenario-based early warning and FHIR explorer in one deployable PWA.
 - Documented which data is real, which is simulated and what each model is allowed to claim.
 - Produced reproducible simulation, analysis, FHIR generation, tests and demo tooling in the public repository.
-- Showed the analysis is trustworthy before real data arrive: planted effects recovered with honest intervals, a placebo flagged at the nominal 5% rate.
+- Showed the analysis is trustworthy before real data arrive: every planted effect recovered with honest intervals, and a no-effect placebo flagged in only 4% of 200 simulated pilots (5% is the expected false-positive rate).
 - Passed an automated WCAG 2.1 AA audit on every screen.
 - Wrote a pre-registered pilot plan (40 volunteers × 6 visits, 84% power) that an OAH city partner could file before the first visit.
 
@@ -132,7 +132,7 @@ The biggest citizen-science engagement problem and the biggest One Health data p
 Run the pre-registered summer pilot (docs/preregistration.md) with an OAH city partner, including a randomised test of whether the personal journal raises return rates; complete a GDPR data-protection impact assessment; translate the short field UI into Portuguese, French, Dutch, Italian and Norwegian; propose the documented IG additions to HL7 Europe; and replace simulated effect sizes with real paired estimates.
 
 ## Built with
-javascript, html5, css3, leaflet, openstreetmap, open-meteo, hl7-fhir, fhir-r4, python, numpy, playwright, github-pages, pwa
+javascript, html5, css3, leaflet, openstreetmap, open-meteo, hl7-fhir, fhir-r4, python, numpy, playwright, axe-core, github-pages, pwa
 
 ---
 
@@ -141,7 +141,7 @@ javascript, html5, css3, leaflet, openstreetmap, open-meteo, hl7-fhir, fhir-r4, 
 - [x] Repository is public
 - [x] GitHub Pages is deployed
 - [x] Narrated demo video (3 min 56 s) in the repo and on GitHub Pages
-- [ ] Same video uploaded to YouTube or Vimeo (Public or Unlisted) and the link pasted into Devpost
+- [ ] Same video uploaded to YouTube or Vimeo (Public or Unlisted), `docs/streamwell-demo.srt` added as English captions, and the link pasted into Devpost
 - [ ] Primary track selected on Devpost
 - [ ] Team/participant setup confirmed on Devpost
 - [ ] Submitted before **4 October 2026, 9:00 pm PDT** (midnight in New York)

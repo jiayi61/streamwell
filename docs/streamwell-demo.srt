@@ -1,0 +1,187 @@
+1
+00:00:01,194 --> 00:00:01,928
+StreamWell.
+
+2
+00:00:01,928 --> 00:00:03,063
+Check the stream.
+
+3
+00:00:03,063 --> 00:00:04,065
+Check yourself.
+
+4
+00:00:05,811 --> 00:00:09,982
+OneAquaHealth asks: do healthy urban streams make healthier people?
+
+5
+00:00:10,546 --> 00:00:16,053
+Citizen science can watch hundreds of streams, but only about a quarter of volunteers ever come back.
+
+6
+00:00:16,623 --> 00:00:20,223
+And a stream record says nothing about how the stream made anyone feel.
+
+7
+00:00:20,223 --> 00:00:22,251
+The human half of One Health is missing.
+
+8
+00:00:24,026 --> 00:00:26,239
+StreamWell fixes both with one idea.
+
+9
+00:00:26,239 --> 00:00:30,113
+Every visit becomes two health checks: the stream’s, and yours.
+
+10
+00:00:32,534 --> 00:00:33,110
+Meet Ana.
+
+11
+00:00:33,110 --> 00:00:39,122
+After work she walks to a stream in Coimbra, one of the 106 real OneAquaHealth research sites.
+
+12
+00:00:41,681 --> 00:00:46,754
+She sees today’s safe-walk advisory, and the project’s own lab health-risk score for this stream.
+
+13
+00:00:48,432 --> 00:00:52,126
+First, thirty seconds: joy, calm, irritation and worry.
+
+14
+00:00:52,126 --> 00:00:56,223
+The same four feelings the OneAquaHealth app already records.
+
+15
+00:00:56,223 --> 00:00:58,036
+StreamWell asks them twice.
+
+16
+00:01:02,944 --> 00:01:08,353
+Then the official OneAquaHealth stream check, in plain words and pictures, with an honest "not sure".
+
+17
+00:01:27,854 --> 00:01:28,906
+Then a second look.
+
+18
+00:01:28,906 --> 00:01:34,889
+Explainable checks compare her answers with each other, with recent weather and with her photo, and say why.
+
+19
+00:01:37,829 --> 00:01:38,880
+The AI suggests.
+
+20
+00:01:38,880 --> 00:01:42,426
+Ana decides, and her decision travels with the record.
+
+21
+00:01:49,837 --> 00:01:51,692
+Two health checks, side by side.
+
+22
+00:01:51,692 --> 00:01:54,416
+The stream is Good, with every point explained.
+
+23
+00:01:54,416 --> 00:01:56,967
+And Ana left more restored than she arrived.
+
+24
+00:02:02,347 --> 00:02:03,601
+Her data, her choice.
+
+25
+00:02:03,601 --> 00:02:06,349
+Feelings stay on her phone unless she opts in.
+
+26
+00:02:08,134 --> 00:02:09,915
+This is the reason to come back.
+
+27
+00:02:09,915 --> 00:02:13,311
+Over weeks, her journal shows which streams restore her most.
+
+28
+00:02:14,980 --> 00:02:17,547
+The reward is personal insight, not points.
+
+29
+00:02:19,304 --> 00:02:22,734
+Missions send volunteers to streams nobody has checked for a month.
+
+30
+00:02:24,305 --> 00:02:28,457
+And a family doctor can prescribe stream walks, as a blue prescription.
+
+31
+00:02:31,264 --> 00:02:35,012
+For cities: every site, with the real OneAquaHealth lab scores.
+
+32
+00:02:35,012 --> 00:02:39,474
+These visits are simulated, because this paired dataset does not exist yet.
+
+33
+00:02:39,474 --> 00:02:40,961
+Creating it is the point.
+
+34
+00:02:44,540 --> 00:02:47,963
+Healthier streams, more restored people, made measurable.
+
+35
+00:02:48,530 --> 00:02:51,265
+Feeling unsafe, smells and litter cost the most.
+
+36
+00:02:51,265 --> 00:02:53,316
+Each becomes an action for the city.
+
+37
+00:02:57,868 --> 00:03:02,359
+If a storm hits tonight, risky streams turn red, with safer ones nearby.
+
+38
+00:03:04,161 --> 00:03:10,161
+Everything is HL7 FHIR on the OneAquaHealth Implementation Guide, at two privacy levels.
+
+39
+00:03:11,632 --> 00:03:13,150
+Zero validation errors.
+
+40
+00:03:25,805 --> 00:03:27,233
+We checked our own work.
+
+41
+00:03:27,233 --> 00:03:34,134
+In two hundred simulated pilots, the model found every planted effect, and a fake one only four percent of the time.
+
+42
+00:03:34,134 --> 00:03:35,681
+Zero accessibility issues.
+
+43
+00:03:35,681 --> 00:03:39,310
+And a pre-registered pilot, ready for one OneAquaHealth city.
+
+44
+00:03:39,876 --> 00:03:40,641
+StreamWell.
+
+45
+00:03:40,641 --> 00:03:41,822
+Check the stream.
+
+46
+00:03:41,822 --> 00:03:42,865
+Check yourself.
+
+47
+00:03:42,865 --> 00:03:43,560
+Thank you.
