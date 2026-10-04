@@ -1,11 +1,11 @@
 {
   "resourceType": "Bundle",
-  "id": "4faacb00-be2a-4d94-9076-4c04cb521ae5",
+  "id": "13155ea2-8f68-442c-a562-85cec23664a1",
   "meta": {
-    "lastUpdated": "2026-10-04T00:29:49.178Z"
+    "lastUpdated": "2026-10-04T03:05:14.824Z"
   },
   "type": "collection",
-  "timestamp": "2026-10-04T00:29:49.178Z",
+  "timestamp": "2026-10-04T03:05:14.824Z",
   "entry": [
     {
       "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Patient/sw-demo-2026",
@@ -18,7 +18,11 @@
             "value": "demo-2026"
           }
         ],
-        "active": true
+        "active": true,
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Pseudonymous person demo-2026</p></div>"
+        }
       }
     },
     {
@@ -30,7 +34,11 @@
           {
             "text": "Dr. Demo (fictional general practitioner)"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Dr. Demo (fictional general practitioner)</p></div>"
+        }
       }
     },
     {
@@ -113,7 +121,11 @@
               "description": "Suggested streams: Vale das Flores (C3), Arregaça (C10), Copeira (C15)"
             }
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Blue prescription: regular urban stream walks with StreamWell check-ins (2026-08-17 to 2026-10-12)</p></div>"
+        }
       }
     },
     {
@@ -149,7 +161,11 @@
             },
             "dueDate": "2026-10-12"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Improve well-being: WHO-5 up by at least 10 points</p></div>"
+        }
       }
     },
     {
@@ -184,6 +200,10 @@
         "position": {
           "latitude": 40.2033,
           "longitude": -8.4103
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Coimbra (coimbra)</p></div>"
         }
       }
     },
@@ -218,6 +238,10 @@
         },
         "partOf": {
           "reference": "Location/oah-city-CO"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Vale das Flores (C3): OneAquaHealth research site C3 (Coimbra)</p></div>"
         }
       }
     },
@@ -252,6 +276,10 @@
         },
         "partOf": {
           "reference": "Location/oah-city-CO"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Arregaça (C10): OneAquaHealth research site C10 (Coimbra)</p></div>"
         }
       }
     },
@@ -286,6 +314,10 @@
         },
         "partOf": {
           "reference": "Location/oah-city-CO"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Copeira (C15): OneAquaHealth research site C15 (Coimbra)</p></div>"
         }
       }
     },
@@ -320,6 +352,10 @@
         },
         "partOf": {
           "reference": "Location/oah-city-CO"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Mina Hospital (C5): OneAquaHealth research site C5 (Coimbra)</p></div>"
         }
       }
     },
@@ -390,7 +426,11 @@
               }
             ]
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Answers to https://jiayi61.github.io/streamwell/fhir/Questionnaire/who5 (completed, 2026-08-17)</p></div>"
+        }
       }
     },
     {
@@ -423,6 +463,11 @@
         "subject": {
           "reference": "Patient/sw-demo-2026"
         },
+        "performer": [
+          {
+            "reference": "Patient/sw-demo-2026"
+          }
+        ],
         "effectiveDateTime": "2026-08-17",
         "valueQuantity": {
           "value": 44,
@@ -434,7 +479,11 @@
           {
             "reference": "QuestionnaireResponse/sw-who5-baseline"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>WHO-5 percentage score: 44 % (2026-08-17)</p></div>"
+        }
       }
     },
     {
@@ -504,7 +553,11 @@
               }
             ]
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Answers to https://jiayi61.github.io/streamwell/fhir/Questionnaire/who5 (completed, 2026-09-28)</p></div>"
+        }
       }
     },
     {
@@ -537,6 +590,11 @@
         "subject": {
           "reference": "Patient/sw-demo-2026"
         },
+        "performer": [
+          {
+            "reference": "Patient/sw-demo-2026"
+          }
+        ],
         "effectiveDateTime": "2026-09-28",
         "valueQuantity": {
           "value": 60,
@@ -548,7 +606,11 @@
           {
             "reference": "QuestionnaireResponse/sw-who5-followup"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>WHO-5 percentage score: 60 % (2026-09-28)</p></div>"
+        }
       }
     },
     {
@@ -656,7 +718,11 @@
               }
             ]
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Answers to https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit (completed, 2026-09-21)</p></div>"
+        }
       }
     },
     {
@@ -781,7 +847,11 @@
               }
             ]
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Answers to https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit (completed, 2026-09-24)</p></div>"
+        }
       }
     },
     {
@@ -918,7 +988,11 @@
               }
             ]
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Answers to https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit (completed, 2026-09-28)</p></div>"
+        }
       }
     },
     {
@@ -1043,7 +1117,11 @@
               }
             ]
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Answers to https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit (completed, 2026-10-01)</p></div>"
+        }
       }
     },
     {
@@ -1084,12 +1162,17 @@
         "subject": {
           "reference": "Patient/sw-demo-2026"
         },
+        "performer": [
+          {
+            "reference": "Patient/sw-demo-2026"
+          }
+        ],
         "effectiveDateTime": "2026-09-21",
         "valueQuantity": {
           "value": 0.75,
           "unit": "score",
           "system": "http://unitsofmeasure.org",
-          "code": "{score}"
+          "code": "1"
         },
         "referenceRange": [
           {
@@ -1097,13 +1180,13 @@
               "value": -4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "high": {
               "value": 4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
           }
@@ -1112,7 +1195,11 @@
           {
             "reference": "QuestionnaireResponse/demo-1660-qr"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Restoration change during a stream visit: 0.75 score (2026-09-21)</p></div>"
+        }
       }
     },
     {
@@ -1153,12 +1240,17 @@
         "subject": {
           "reference": "Patient/sw-demo-2026"
         },
+        "performer": [
+          {
+            "reference": "Patient/sw-demo-2026"
+          }
+        ],
         "effectiveDateTime": "2026-09-24",
         "valueQuantity": {
           "value": 0,
           "unit": "score",
           "system": "http://unitsofmeasure.org",
-          "code": "{score}"
+          "code": "1"
         },
         "referenceRange": [
           {
@@ -1166,13 +1258,13 @@
               "value": -4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "high": {
               "value": 4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
           }
@@ -1181,7 +1273,11 @@
           {
             "reference": "QuestionnaireResponse/demo-1661-qr"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Restoration change during a stream visit: 0 score (2026-09-24)</p></div>"
+        }
       }
     },
     {
@@ -1222,12 +1318,17 @@
         "subject": {
           "reference": "Patient/sw-demo-2026"
         },
+        "performer": [
+          {
+            "reference": "Patient/sw-demo-2026"
+          }
+        ],
         "effectiveDateTime": "2026-09-28",
         "valueQuantity": {
           "value": 0,
           "unit": "score",
           "system": "http://unitsofmeasure.org",
-          "code": "{score}"
+          "code": "1"
         },
         "referenceRange": [
           {
@@ -1235,13 +1336,13 @@
               "value": -4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "high": {
               "value": 4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
           }
@@ -1250,7 +1351,11 @@
           {
             "reference": "QuestionnaireResponse/demo-1662-qr"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Restoration change during a stream visit: 0 score (2026-09-28)</p></div>"
+        }
       }
     },
     {
@@ -1291,12 +1396,17 @@
         "subject": {
           "reference": "Patient/sw-demo-2026"
         },
+        "performer": [
+          {
+            "reference": "Patient/sw-demo-2026"
+          }
+        ],
         "effectiveDateTime": "2026-10-01",
         "valueQuantity": {
           "value": 0,
           "unit": "score",
           "system": "http://unitsofmeasure.org",
-          "code": "{score}"
+          "code": "1"
         },
         "referenceRange": [
           {
@@ -1304,13 +1414,13 @@
               "value": -4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "high": {
               "value": 4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
           }
@@ -1319,7 +1429,11 @@
           {
             "reference": "QuestionnaireResponse/demo-1663-qr"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Restoration change during a stream visit: 0 score (2026-10-01)</p></div>"
+        }
       }
     },
     {
@@ -1370,6 +1484,10 @@
               "display": "healthcare research"
             }
           ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Consent: Research, permit (opt-in)</p></div>"
         }
       }
     }

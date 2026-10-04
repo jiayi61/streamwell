@@ -1,11 +1,11 @@
 {
   "resourceType": "Bundle",
-  "id": "9840c260-e6e3-44e9-9d9a-700b024c9f70",
+  "id": "9c0eda9d-f785-4647-9d17-e61c5af5861c",
   "meta": {
-    "lastUpdated": "2026-10-04T00:29:49.177Z"
+    "lastUpdated": "2026-10-04T03:05:14.823Z"
   },
   "type": "collection",
-  "timestamp": "2026-10-04T00:29:49.177Z",
+  "timestamp": "2026-10-04T03:05:14.823Z",
   "entry": [
     {
       "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Patient/sw-example",
@@ -18,7 +18,11 @@
             "value": "example"
           }
         ],
-        "active": true
+        "active": true,
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Pseudonymous person example</p></div>"
+        }
       }
     },
     {
@@ -297,7 +301,11 @@
               }
             ]
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>StreamWell visit check-in and check-out</p></div>"
+        }
       }
     },
     {
@@ -332,6 +340,10 @@
         "position": {
           "latitude": 40.2033,
           "longitude": -8.4103
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Coimbra (coimbra)</p></div>"
         }
       }
     },
@@ -366,6 +378,10 @@
         },
         "partOf": {
           "reference": "Location/oah-city-CO"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Copeira (C15): OneAquaHealth research site C15 (Coimbra)</p></div>"
         }
       }
     },
@@ -491,7 +507,11 @@
               }
             ]
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Answers to https://jiayi61.github.io/streamwell/fhir/Questionnaire/streamwell-visit (completed, 2026-10-01)</p></div>"
+        }
       }
     },
     {
@@ -532,12 +552,17 @@
         "subject": {
           "reference": "Patient/sw-example"
         },
+        "performer": [
+          {
+            "reference": "Patient/sw-example"
+          }
+        ],
         "effectiveDateTime": "2026-10-01",
         "valueQuantity": {
           "value": 0,
           "unit": "score",
           "system": "http://unitsofmeasure.org",
-          "code": "{score}"
+          "code": "1"
         },
         "referenceRange": [
           {
@@ -545,13 +570,13 @@
               "value": -4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "high": {
               "value": 4,
               "unit": "score",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             },
             "text": "Mean change across joy, calm, irritation (reversed) and worry (reversed); 0 = no change"
           }
@@ -560,7 +585,11 @@
           {
             "reference": "QuestionnaireResponse/example-visit-qr"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Restoration change during a stream visit: 0 score (2026-10-01)</p></div>"
+        }
       }
     }
   ]

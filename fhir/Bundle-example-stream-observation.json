@@ -1,11 +1,11 @@
 {
   "resourceType": "Bundle",
-  "id": "be2120e3-a1fe-4bf9-9bc0-f3d0dd1fbb9d",
+  "id": "33ad3c80-7fb2-4283-aea1-a8886fea5bdd",
   "meta": {
-    "lastUpdated": "2026-10-04T00:29:49.177Z"
+    "lastUpdated": "2026-10-04T03:05:14.823Z"
   },
   "type": "collection",
-  "timestamp": "2026-10-04T00:29:49.177Z",
+  "timestamp": "2026-10-04T03:05:14.823Z",
   "entry": [
     {
       "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-city-CO",
@@ -39,6 +39,10 @@
         "position": {
           "latitude": 40.2033,
           "longitude": -8.4103
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Coimbra (coimbra)</p></div>"
         }
       }
     },
@@ -73,6 +77,10 @@
         },
         "partOf": {
           "reference": "Location/oah-city-CO"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Copeira (C15): OneAquaHealth research site C15 (Coimbra)</p></div>"
         }
       }
     },
@@ -185,10 +193,14 @@
               "value": 1,
               "unit": "barriers",
               "system": "http://unitsofmeasure.org",
-              "code": "{count}"
+              "code": "1"
             }
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Hydrology of the stream: Still (2026-10-01)</p></div>"
+        }
       }
     },
     {
@@ -343,7 +355,11 @@
               "text": "Stones"
             }
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Morphology of the streams: Channel form: U shape; Channel bed type: Natural; Bank type: Natural; In-stream habitat: Sand banks; In-stream habitat: Stones (2026-10-01)</p></div>"
+        }
       }
     },
     {
@@ -500,7 +516,11 @@
           {
             "text": "Second look \"The left bank: mostly bare, with trees as tallest plants?\": volunteer kept the answer (a few old trees on a mown bank)."
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Riparian vegetation: Left bank covered by vegetation: Present; Right bank covered by vegetation: Present; Left bank dominant vegetation: Shrubs; Right bank dominant vegetation: Shrubs; Recent vegetation cuts: Present (2026-10-01)</p></div>"
+        }
       }
     },
     {
@@ -629,7 +649,11 @@
               ]
             }
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Land use in the margins: Impervious area at left bank: Present; Impervious area at right bank: Absent; Outfall pipes: Absent; Construction works: Absent (2026-10-01)</p></div>"
+        }
       }
     },
     {
@@ -705,7 +729,11 @@
               ]
             }
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Foam/colour/smell: Muddy (2026-10-01)</p></div>"
+        }
       }
     },
     {
@@ -757,6 +785,10 @@
               "display": "Absent"
             }
           ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Invasive invertebrate, plants and fish: Absent (2026-10-01)</p></div>"
         }
       }
     },
@@ -811,6 +843,10 @@
             }
           ],
           "text": "Good"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Overall stream quality (OAH three-class scale): Good (2026-10-01)</p></div>"
         }
       }
     },
@@ -860,7 +896,7 @@
           "value": 70,
           "unit": "points",
           "system": "http://unitsofmeasure.org",
-          "code": "{score}"
+          "code": "1"
         },
         "component": [
           {
@@ -878,7 +914,7 @@
               "value": 25,
               "unit": "points of 25",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             }
           },
           {
@@ -896,7 +932,7 @@
               "value": 11,
               "unit": "points of 25",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             }
           },
           {
@@ -914,7 +950,7 @@
               "value": 19.6,
               "unit": "points of 25",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             }
           },
           {
@@ -932,7 +968,7 @@
               "value": 14,
               "unit": "points of 25",
               "system": "http://unitsofmeasure.org",
-              "code": "{score}"
+              "code": "1"
             }
           }
         ],
@@ -963,7 +999,11 @@
           {
             "reference": "Observation/example-visit-overall"
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>StreamWell condition view (decision support, not a validated index): 70 points (2026-10-01)</p></div>"
+        }
       }
     }
   ]

@@ -1,11 +1,11 @@
 {
   "resourceType": "Bundle",
-  "id": "3dafab87-8373-4138-ac52-5fcca4283209",
+  "id": "988f9f9f-1868-4d4f-bd9f-a9b3674d187d",
   "meta": {
-    "lastUpdated": "2026-10-04T00:29:49.178Z"
+    "lastUpdated": "2026-10-04T03:05:14.823Z"
   },
   "type": "collection",
-  "timestamp": "2026-10-04T00:29:49.178Z",
+  "timestamp": "2026-10-04T03:05:14.823Z",
   "entry": [
     {
       "fullUrl": "https://jiayi61.github.io/streamwell/fhir/Location/oah-city-BE",
@@ -39,6 +39,10 @@
         "position": {
           "latitude": 41.1291,
           "longitude": 14.7868
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Benevento (benevento)</p></div>"
         }
       }
     },
@@ -73,6 +77,10 @@
         },
         "partOf": {
           "reference": "Location/oah-city-BE"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Capodimonte (BN1): OneAquaHealth research site BN1 (Benevento)</p></div>"
         }
       }
     },
@@ -126,7 +134,11 @@
             },
             "exclude": false
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Adult StreamWell visitors at OAH site BN1, 2026-09</p></div>"
+        }
       }
     },
     {
@@ -171,7 +183,7 @@
           "value": 0.5,
           "unit": "score",
           "system": "http://unitsofmeasure.org",
-          "code": "{score}"
+          "code": "1"
         },
         "component": [
           {
@@ -189,7 +201,7 @@
               "value": 5,
               "unit": "visits",
               "system": "http://unitsofmeasure.org",
-              "code": "{count}"
+              "code": "1"
             }
           },
           {
@@ -207,10 +219,14 @@
               "value": 5,
               "unit": "people",
               "system": "http://unitsofmeasure.org",
-              "code": "{count}"
+              "code": "1"
             }
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Mean restoration change among visitors: 0.5 score (2026-09-01 to 2026-09-30)</p></div>"
+        }
       }
     },
     {
@@ -273,7 +289,7 @@
               "value": 5,
               "unit": "visits",
               "system": "http://unitsofmeasure.org",
-              "code": "{count}"
+              "code": "1"
             }
           },
           {
@@ -291,10 +307,14 @@
               "value": 5,
               "unit": "people",
               "system": "http://unitsofmeasure.org",
-              "code": "{count}"
+              "code": "1"
             }
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Share of visits after which visitors felt better: 80 % (2026-09-01 to 2026-09-30)</p></div>"
+        }
       }
     },
     {
@@ -357,7 +377,7 @@
               "value": 5,
               "unit": "visits",
               "system": "http://unitsofmeasure.org",
-              "code": "{count}"
+              "code": "1"
             }
           },
           {
@@ -375,10 +395,14 @@
               "value": 5,
               "unit": "people",
               "system": "http://unitsofmeasure.org",
-              "code": "{count}"
+              "code": "1"
             }
           }
-        ]
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Share of visits reached on foot or by bike (physical activity): 80 % (2026-09-01 to 2026-09-30)</p></div>"
+        }
       }
     }
   ]
