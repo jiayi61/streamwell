@@ -1,0 +1,24 @@
+{
+  "name": "streamwell",
+  "version": "1.0.0",
+  "description": "Check the stream. Check yourself. Paired citizen stream checks and well-being check-ins for urban streams, with explainable second look, One Health insights, safe-blue-walk early warning and HL7 FHIR on the OneAquaHealth IG.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Jiayi Liu",
+  "repository": "github:jiayi61/streamwell",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "node --test tests/*.test.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "simulate": "python3 scripts/simulate.py",
+    "fhir": "node scripts/build-fhir.mjs",
+    "analysis": "python3 scripts/analysis.py"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}

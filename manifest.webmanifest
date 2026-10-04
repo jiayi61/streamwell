@@ -1,0 +1,13 @@
+{
+  "name": "StreamWell",
+  "short_name": "StreamWell",
+  "description": "Check the stream. Check yourself. Paired citizen stream checks and well-being check-ins for urban streams.",
+  "start_url": "./#/visit",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f8f9",
+  "theme_color": "#0d6e86",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
